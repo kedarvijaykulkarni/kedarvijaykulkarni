@@ -51,7 +51,7 @@ IT Professional with 17 years of experience in Technical Leadership, Software Pr
 
 [<img align="left" title="Visual Studio Code" alt="Visual Studio Code" height="40" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/visual-studio-code/visual-studio-code.png" />][webdevplaylist]
 
-[<img align="left" title="Visual Studio Code" alt="Sublime Text" height="40" src="https://cdn.iconscout.com/icon/free/png-256/sublime-text-3521747-2945191.png" />][webdevplaylist]
+[<img align="left" title="Sublime text" alt="Sublime Text" height="40" src="https://cdn.iconscout.com/icon/free/png-256/sublime-text-3521747-2945191.png" />][webdevplaylist]
 
 
 
@@ -67,7 +67,7 @@ IT Professional with 17 years of experience in Technical Leadership, Software Pr
 
 ---
 [twitter]: https://twitter.com/kedman1234
-[discord]: ttps://discordapp.com/users/519099016408203304
+[discord]: https://discordapp.com/users/519099016408203304
 [github]: https://github.com/kedarvijaykulkarni/
 [linkedin]: https://www.linkedin.com/in/kedarvijaykulkarni/
 [email]: mailto:kedarvijaykulkarni@gmail.com?Subject=Hear%20from%20you%20on%20github
