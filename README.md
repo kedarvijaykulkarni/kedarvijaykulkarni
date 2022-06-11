@@ -54,13 +54,20 @@ IT Professional with 17 years of experience in Technical Leadership, Software Pr
 [<img align="left" title="Sublime text" alt="Sublime Text" height="40" src="https://cdn.iconscout.com/icon/free/png-256/sublime-text-3521747-2945191.png" />][webdevplaylist]
 
 
+<br />
+<br />  
 
+
+  
 
 <br />
 <br />
+<br />
+<br />
 
-### ⚡ Developer guide:
+### 🌱 Developer guide:  
 [<img align="left" title="Medium" alt="Medium" height="40" src="https://cdn.iconscout.com/icon/free/png-256/medium-logo-3610097-3014862.png" />][medium]
+
 
 <br />
 <br />
