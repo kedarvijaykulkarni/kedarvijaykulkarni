@@ -8,8 +8,8 @@ IT Professional with 17 years of experience in Technical Leadership, Software Pr
 - 🚀 &nbsp;  Always looking for my next opportunity.
 - 🥅 &nbsp;  2022 Goals: Contribute more to Open Source projects. Continue learning and developing.
 - ⚡️ &nbsp;  Fun fact: I love travlling.
-- 💬 like to talk about javascript & frontend development and new ideas.
-- ✨ &nbsp; Most recently I was working on integrations and [developer tools][mantiumapi] for natural language processing artificial intelligence.
+- 💬 &nbsp;  like to talk about javascript & frontend development and new ideas.
+- ✨ &nbsp;  Most recently I was working on integrations and [developer tools][mantiumapi] for natural language processing artificial intelligence.
 
 <br />
 <br />
