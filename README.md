@@ -1,5 +1,7 @@
 ### Hi there, I'm Kedar 👋
 
+<p align="left"> <img src="https://komarev.com/ghpvc/?username=kedarvijaykulkarni" alt="Kedar Vijay Kulkarni" /> </p>
+
 
 IT Professional with 17 years of experience in Technical Leadership, Software Product Development (SAAS), Solutioning, Custom Web Application Development, Open-Source contributor. I love working with JavaScript. I've been doing it for 9 years for a variety of startups. 3 years of remotely working experience. and an enthusiast about new learning.
 
