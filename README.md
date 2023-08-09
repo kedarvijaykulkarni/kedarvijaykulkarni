@@ -2,14 +2,28 @@
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=kedarvijaykulkarni" alt="Kedar Vijay Kulkarni" /> </p>
 
+I'm enthusiastic about creating outstanding software solutions, especially when it comes to using JavaScript technologies. In my role as a Senior Software Engineer, I find excitement in tackling the challenges that arise when developing robust and innovative applications. My main expertise lies in making the most of JavaScript, ReactJS, and EmberJS to build smooth user experiences that engage and satisfy users.
 
-IT Professional with 17 years of experience in Technical Leadership, Software Product Development (SAAS), Solutioning, Custom Web Application Development, Open-Source contributor. I love working with JavaScript. I've been doing it for 9 years for a variety of startups. 3 years of remotely working experience. and an enthusiast about new learning.
+Having a deep understanding of modern software development, I'm skilled in using tools like Docker to simplify the process of deploying applications, ensuring they run well and can handle growth. I have a proven track record of creating efficient RestAPIs, which are like the foundations of various projects, allowing different parts to communicate seamlessly.
 
-- 🔭 &nbsp;  Working at [Bloowatch](https://www.bloowatch.com/en/) using [Ember.JS][emberjs]
-- 🌱 &nbsp;  Currenty learning about [React](https://reactjs.org/) & [Node.js](https://nodejs.org/en/).
+My journey in the software world has also led me to contribute to open-source projects actively. I believe in the power of community collaboration. This experience has made me adept at working with frameworks and approaches that help developers create exceptional code.
+
+Beyond my technical abilities, I'm also quite intrigued by the world of ChatBots and Natural Language Processing (NLP). I see a lot of potential in these technologies to transform how humans and machines interact, creating dynamic conversations and experiences.
+
+As a Senior Software Engineer, I'm dedicated to constantly pushing the boundaries of what's achievable in the software realm. If you're looking for someone who is not just skilled but also passionate about innovation and making a meaningful impact on projects, I'd be thrilled to connect with you. Let's see how my expertise in JavaScript, ReactJS, EmberJS, Docker, RestAPIs, frameworks, and my passion for open source and emerging tech can contribute to your team.
+
+Don't hesitate to contact me for exciting collaborations, discussions, and opportunities. 🚀
+
+#SeniorSoftwareEngineer #JavaScript #ReactJS #EmberJS #Docker #RestAPI #Framework #OpenSource #ChatBot #NLP #Innovation
+
+🔭 &nbsp; You can also find me here:
+- &nbsp; Medium: https://medium.com/@kedman1234/
+- &nbsp; CodePen: https://codepen.io/kedman1234/
+- &nbsp; GitBook: https://legacy.gitbook.com/@kedman1234
+- 🌱 &nbsp;  Currently learning about NLP & Prompt Engineering
 - 🚀 &nbsp;  Always looking for my next opportunity.
 - 🥅 &nbsp;  2022 Goals: Contribute more to Open Source projects. Continue learning and developing.
-- ⚡️ &nbsp;  Fun fact: I love travlling.
+- ⚡️ &nbsp;  Fun fact: I love traveling.
 - 💬 &nbsp;  like to talk about javascript & frontend development and new ideas.
 - ✨ &nbsp;  Most recently I was working on integrations and [developer tools][mantiumapi] for natural language processing artificial intelligence.
 
@@ -55,13 +69,8 @@ IT Professional with 17 years of experience in Technical Leadership, Software Pr
 
 [<img align="left" title="Sublime text" alt="Sublime Text" height="40" src="https://cdn.iconscout.com/icon/free/png-256/sublime-text-3521747-2945191.png" />][webdevplaylist]
 
-
 <br />
 <br />  
-
-
-  
-
 <br />
 <br />
 <br />
@@ -69,7 +78,6 @@ IT Professional with 17 years of experience in Technical Leadership, Software Pr
 
 ### 🌱 Developer guide:  
 [<img align="left" title="Medium" alt="Medium" height="40" src="https://cdn.iconscout.com/icon/free/png-256/medium-logo-3610097-3014862.png" />][medium]
-
 
 <br />
 <br />
