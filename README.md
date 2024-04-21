@@ -19,7 +19,7 @@ Don't hesitate to contact me for exciting collaborations, discussions, and oppor
 🔭 &nbsp; What I am doing:
 - 🌱 &nbsp; Currently learning about NLP & Prompt Engineering
 - 🚀 &nbsp; Always looking for my next opportunity.
-- 🥅 &nbsp; 2023 Goals: Contribute more to Open Source projects. Continue learning and developing.
+- 🥅 &nbsp; 2024 Goals: Contribute more to Open Source projects. Continue learning and developing.
 - ⚡️ &nbsp; Fun fact: I love traveling.
 - 💬 &nbsp; like to talk about javascript & frontend development and new ideas.
 - ✨ &nbsp; Most recently I was working on integrations and [developer tools][mantiumapi] for natural language processing artificial intelligence.
