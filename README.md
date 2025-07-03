@@ -29,6 +29,7 @@ Don't hesitate to contact me for exciting collaborations, discussions, and oppor
 
 <div style="display:flex; align-items:center; justify-content:center; flex-wrap: wrap;">
 <img src="https://github-readme-stats.vercel.app/api?username=kedarvijaykulkarni&theme=system" style="margin-right:4px;" alt="Kedar Vijay Kulkarni">
+<img src="https://streak-stats.demolab.com/?user=kedarvijaykulkarni&theme=default" style="margin-right:4px;" alt="Kedar Vijay Kulkarni">
 <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=kedarvijaykulkarni&theme=system" alt="Kedar Vijay Kulkarni">
 </div>
 
