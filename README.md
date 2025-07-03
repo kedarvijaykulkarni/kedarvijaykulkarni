@@ -27,6 +27,14 @@ Don't hesitate to contact me for exciting collaborations, discussions, and oppor
 <br />
 <br />
 
+<div style="display:flex; align-items:center; justify-content:center; flex-wrap: wrap;">
+<img src="https://github-readme-stats.vercel.app/api?username=kedarvijaykulkarni&theme=system" style="margin-right:4px;" alt="Kedar Vijay Kulkarni">
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=kedarvijaykulkarni&theme=system" alt="Kedar Vijay Kulkarni">
+</div>
+
+<br />
+<br />
+
 ### 📫 Connect with me:
 
 [<img align="left" alt="Kedar Kulkarni | linkedin" margin="8px" width="22px" src="https://cdn.iconscout.com/icon/free/png-512/linkedin-160-461814.png" />][linkedin]
