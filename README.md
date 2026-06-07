@@ -1,109 +1,117 @@
-<div style="text-align: center;"> 
-  <img width="400" src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&weight=600&size=30&duration=3000&color=2AF7B4&width=535&lines=Hi%2C+I'm+Kedar%F0%9F%91%8B;"/>
+<div align="center">
+
+# Hi, I'm Kedar 👋
+
+<img width="600" src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&weight=600&size=24&duration=3500&pause=1000&color=2AF7B4&center=true&vCenter=true&width=700&lines=Software+Architect+%7C+AI+Engineer+%7C+Full-Stack+Tech+Lead;20%2B+years+shipping+production+software;React+%C2%B7+Next.js+%C2%B7+Node.js+%C2%B7+TypeScript+%C2%B7+LLM+%C2%B7+GenAI;Open-source+maintainer+%26+developer-tools+builder" alt="Kedar Vijay Kulkarni" />
+
+<p>
+  <img src="https://komarev.com/ghpvc/?username=kedarvijaykulkarni&style=flat-square&color=2AF7B4" alt="Profile views" />
+</p>
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/kedarvijaykulkarni/)
+[![Medium](https://img.shields.io/badge/Medium-000000?style=flat-square&logo=medium&logoColor=white)](https://medium.com/@kedman1234/)
+[![Email](https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:kedarvijaykulkarni@gmail.com)
+[![npm](https://img.shields.io/badge/npm-CB3837?style=flat-square&logo=npm&logoColor=white)](https://www.npmjs.com/~kedman1234)
+
 </div>
-
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=kedarvijaykulkarni" alt="Kedar Vijay Kulkarni" /> </p>
-
-I'm enthusiastic about creating outstanding software solutions, especially when it comes to using JavaScript technologies. In my role as a Senior Software Engineer, I find excitement in tackling the challenges that arise when developing robust and innovative applications. My main expertise lies in making the most of JavaScript, ReactJS, and EmberJS to build smooth user experiences that engage and satisfy users.
-
-Having a deep understanding of modern software development, I'm skilled in using tools like Docker to simplify the process of deploying applications, ensuring they run well and can handle growth. I have a proven track record of creating efficient RestAPIs, which are like the foundations of various projects, allowing different parts to communicate seamlessly.
-
-My journey in the software world has also led me to contribute to open-source projects actively. I believe in the power of community collaboration. This experience has made me adept at working with frameworks and approaches that help developers create exceptional code.
-
-Beyond my technical abilities, I'm also quite intrigued by the world of ChatBots and Natural Language Processing (NLP). I see a lot of potential in these technologies to transform how humans and machines interact, creating dynamic conversations and experiences.
-
-As a Senior Software Engineer, I'm dedicated to constantly pushing the boundaries of what's achievable in the software realm. If you're looking for someone who is not just skilled but also passionate about innovation and making a meaningful impact on projects, I'd be thrilled to connect with you. Let's see how my expertise in JavaScript, ReactJS, EmberJS, Docker, RestAPIs, frameworks, and my passion for open source and emerging tech can contribute to your team.
-
-Don't hesitate to contact me for exciting collaborations, discussions, and opportunities. 🚀
-
-#SeniorSoftwareEngineer #JavaScript #ReactJS #EmberJS #Docker #RestAPI #Framework #OpenSource #ChatBot #NLP #Innovation
-
-🔭 &nbsp; What I am doing:
-- 🌱 &nbsp; Currently learning about NLP & Prompt Engineering
-- 🚀 &nbsp; Always looking for my next opportunity.
-- 🥅 &nbsp; 2024 Goals: Contribute more to Open Source projects. Continue learning and developing.
-- ⚡️ &nbsp; Fun fact: I love traveling.
-- 💬 &nbsp; like to talk about javascript & frontend development and new ideas.
-- ✨ &nbsp; Most recently I was working on integrations and [developer tools][mantiumapi] for natural language processing artificial intelligence.
-
-<br />
-<br />
-
-<div style="display:flex; align-items:center; justify-content:center; flex-wrap: wrap;">
-<img src="https://github-readme-stats.vercel.app/api?username=kedarvijaykulkarni&theme=system" style="margin-right:4px;" alt="Kedar Vijay Kulkarni">
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=kedarvijaykulkarni&theme=system" alt="Kedar Vijay Kulkarni">
-</div>
-
-<br />
-<br />
-
-<div style="display:flex; align-items:center; justify-content:center; flex-wrap: wrap;">
-<img src="https://streak-stats.demolab.com/?user=kedarvijaykulkarni" style="margin-right:4px;" alt="Kedar Vijay Kulkarni">
-</div>
-
-<br />
-<br />
-
-### 📫 Connect with me:
-
-[<img align="left" alt="Kedar Kulkarni | linkedin" margin="8px" width="22px" src="https://cdn.iconscout.com/icon/free/png-512/linkedin-160-461814.png" />][linkedin]
-
-[<img align="left" alt="Kedar Kulkarni | email" width="22px" src="https://cdn.iconscout.com/icon/free/png-512/gmail-30-722694.png" />][email]
-
-[<img align="left" alt="Kedar Kulkarni | twitter" width="22px" src="https://cdn.iconscout.com/icon/free/png-256/twitter-241-721979.png" />][twitter]
-
-[<img align="left" alt="Kedar Kulkarni | discord" width="22px" src="https://cdn.iconscout.com/icon/free/png-256/discord-4054115-3353190.png" />][discord]
-
-<br />
-<br />
-
-### ⚡ Languages and Tools:
-
-[<img align="left" title="EmberJS" alt="EmberJS" src="https://emberjs.com/images/ember-logo.svg" alt="home" width="83" height="40" />][emberjs]
-
-[<img align="left" title="React" alt="React" height="40" src="https://cdn.iconscout.com/icon/free/png-512/react-3-1175109.png" />][webdevplaylist]
-
-[<img align="left" title="JavaScript" alt="JavaScript" height="40" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png" />][webdevplaylist]
-
-[<img align="left" title="Node.js" alt="Node.js" height="40" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/nodejs/nodejs.png" />][webdevplaylist]
-
-[<img align="left" title="HTML5" alt="HTML5" height="40" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/html/html.png" />][webdevplaylist]
-
-[<img align="left" title="CSS3" alt="CSS3" height="40" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/css/css.png" />][webdevplaylist]
-
-[<img align="left" title="Sass" alt="Sass" height="40" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/sass/sass.png" />][webdevplaylist]
-
-[<img align="left" title="MongoDB" alt="MongoDB" height="40" src="https://cdn.iconscout.com/icon/free/png-256/mongodb-3-1175138.png" />][mongodb]
-
-[<img align="left" title="Git" alt="Git" height="40" src="https://cdn.iconscout.com/icon/free/png-512/git-16-1175195.png" />][github]
-
-[<img align="left" title="Terminal" alt="Terminal" height="40" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/terminal/terminal.png" />][webdevplaylist]
-
-[<img align="left" title="Visual Studio Code" alt="Visual Studio Code" height="40" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/visual-studio-code/visual-studio-code.png" />][webdevplaylist]
-
-[<img align="left" title="Sublime text" alt="Sublime Text" height="40" src="https://cdn.iconscout.com/icon/free/png-256/sublime-text-3521747-2945191.png" />][webdevplaylist]
-
-<br />
-<br />  
-<br />
-<br />
-<br />
-<br />
-
-### 🌱 Developer guide:  
-[<img align="left" title="Medium" alt="Medium" height="40" src="https://cdn.iconscout.com/icon/free/png-256/medium-logo-3610097-3014862.png" />][medium]
-
-<br />
-<br />
 
 ---
-[twitter]: https://twitter.com/kedman1234
-[discord]: https://discordapp.com/users/519099016408203304
-[github]: https://github.com/kedarvijaykulkarni/
-[linkedin]: https://www.linkedin.com/in/kedarvijaykulkarni/
-[email]: mailto:kedarvijaykulkarni@gmail.com?Subject=Hear%20from%20you%20on%20github
-[medium]: https://medium.com/@kedman1234/
-[mongodb]: https://university.mongodb.com/course_completion/a1585c53-9ef6-4bd8-b8f6-da393b76
-[emberjs]: https://emberjs.com/
-[webdevplaylist]: https://www.linkedin.com/in/kedarvijaykulkarni/
-[mantiumapi]: https://www.npmjs.com/package/@mantium/mantiumapi
+
+## 👨‍💻 About
+
+I architect and ship **AI-powered platforms and full-stack systems** — for Fortune 500 enterprises, fintech leaders, and AI-focused startups across the US, Europe, and Asia. Twenty years of building production software, and I've been working with LLMs since the **GPT-3 era**, before "AI engineer" was a job title.
+
+I lead from architecture decisions through to the last bug before launch — and I own the outcome. I also maintain **open-source developer tools used by engineers worldwide**, because good engineering knowledge should be shared.
+
+- 🏗️ **What I do:** AI/LLM systems, prompt engineering, full-stack architecture, legacy modernization, engineering leadership
+- 🤖 **Current focus:** Building AI agents, RAG pipelines, and prompt-driven automation in production
+- 📜 **Credentials:** Anthropic Agent Skills (2026) · Prompt Engineering Professional — MFT Portugal (2025) · GenAI/LLMs & Hugging Face (2025)
+- 🌍 **Open to:** Staff Engineer · Tech Lead · AI Engineer · Full-Stack Architect — remote / hybrid, worldwide
+- ✈️ **Mobility:** US B1/B2 visa valid through 2034 · open to relocation
+
+---
+
+## 🚀 Featured Open Source & Developer Tools
+
+| Project | What it is | Stack |
+|---|---|---|
+| **[react-light-table](https://www.npmjs.com/package/react-light-table)** | Published npm package — lightweight, configurable React data table for developers | React · JavaScript |
+| **[js_str_utils](https://www.npmjs.com/package/js_str_utils)** | Published npm package — string utility toolkit for JavaScript projects | JavaScript |
+| **[mantiumclient-js](https://github.com/mantiumai/mantiumclient-js)** | Architected the official open-source JS/Node client for the Mantium AI platform (OpenAI, Cohere, AI21) | Node.js · LLM APIs |
+| **[SFOX-Market-Data](https://github.com/kedarvijaykulkarni/SFOX-Market-Data)** | Real-time crypto market-data demo over WebSockets | JavaScript · WebSockets |
+
+> Also a contributor to open-source projects in the wider JS ecosystem, including the [tachyons-sass](https://github.com/tachyons-css/tachyons-sass) functional-CSS toolkit.
+
+---
+
+## 🛠️ Tech Stack
+
+**AI & LLM Engineering**
+
+![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=flat-square&logo=openai&logoColor=white)
+![Hugging Face](https://img.shields.io/badge/Hugging%20Face-FFD21E?style=flat-square&logo=huggingface&logoColor=black)
+![Ollama](https://img.shields.io/badge/Ollama-000000?style=flat-square&logo=ollama&logoColor=white)
+![LangChain](https://img.shields.io/badge/Prompt%20Engineering-2AF7B4?style=flat-square&logoColor=white)
+![n8n](https://img.shields.io/badge/n8n-EA4B71?style=flat-square&logo=n8n&logoColor=white)
+
+**Frontend**
+
+![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB)
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=next.js&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![Tailwind](https://img.shields.io/badge/Tailwind-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white)
+
+**Backend & Data**
+
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=node.js&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=flat-square&logo=postgresql&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white)
+![Redis](https://img.shields.io/badge/Redis-DC382D?style=flat-square&logo=redis&logoColor=white)
+
+**Cloud, Infra & Testing**
+
+![AWS](https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=amazon-aws&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
+![Heroku](https://img.shields.io/badge/Heroku-430098?style=flat-square&logo=heroku&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/CI%2FCD-2088FF?style=flat-square&logo=github-actions&logoColor=white)
+![Cypress](https://img.shields.io/badge/Cypress-17202C?style=flat-square&logo=cypress&logoColor=white)
+
+---
+
+## 📊 GitHub Stats
+
+<div align="center">
+
+<img height="170" src="https://github-readme-stats.vercel.app/api?username=kedarvijaykulkarni&show_icons=true&theme=react&hide_border=true&count_private=true" alt="Kedar's GitHub stats" />
+<img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=kedarvijaykulkarni&layout=compact&theme=react&hide_border=true&langs_count=8" alt="Top languages" />
+
+</div>
+
+---
+
+## ✍️ I Write & Share
+
+I publish developer guides and technical articles on **[Medium](https://medium.com/@kedman1234/)** — covering practical AI adoption, LLM workflows, prompt engineering, and modern web architecture. I built and documented LLM integrations (Shopify, WhatsApp, LinkedIn, Twitter) during the early GPT-3/GPT-4 era and have spoken at developer meetups and conferences.
+
+---
+
+## 🏆 Selected Track Record
+
+- Led an AI-assisted **PHP → Next.js migration** reaching ~80% AI-generated code via structured prompt pipelines
+- Architected an enterprise **decision-tree chatbot platform** for a Fortune 500 appliance company (Salesforce + Heroku + Auth0)
+- Re-architected a legacy **Angular app to React** (Vite + Chakra UI) with a full Cypress E2E suite and Docusaurus docs
+- Built the **Mantium AI** open-source JS client and LLM-powered platform integrations
+- Built and led a fintech **QA/automation function** from zero at BillGo
+
+---
+
+<div align="center">
+
+**📫 Let's build something that matters.**
+
+[![LinkedIn](https://img.shields.io/badge/Connect%20on%20LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/kedarvijaykulkarni/)
+[![Email](https://img.shields.io/badge/Email%20Me-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:kedarvijaykulkarni@gmail.com)
+
+</div>
