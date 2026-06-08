@@ -35,7 +35,7 @@ I lead from architecture decisions through to the last bug before launch — and
 
 | Project | What it is | Stack |
 |---|---|---|
-| **[react-light-table](https://www.npmjs.com/package/react-light-table)** | Published npm package — lightweight, configurable React data table for developers | React · JavaScript |
+| **[react-light-table]([[https://www.npmjs.com/package/react-light-table](https://www.npmjs.com/package/@kedman1234/react-light-table)](https://www.npmjs.com/package/@kedman1234/react-light-table))** | Published npm package — lightweight, configurable React data table for developers | React · JavaScript |
 | **[js_str_utils](https://www.npmjs.com/package/js_str_utils)** | Published npm package — string utility toolkit for JavaScript projects | JavaScript |
 | **[mantiumclient-js](https://github.com/mantiumai/mantiumclient-js)** | Architected the official open-source JS/Node client for the Mantium AI platform (OpenAI, Cohere, AI21) | Node.js · LLM APIs |
 | **[SFOX-Market-Data](https://github.com/kedarvijaykulkarni/SFOX-Market-Data)** | Real-time crypto market-data demo over WebSockets | JavaScript · WebSockets |
