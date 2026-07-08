@@ -54,6 +54,16 @@ export const metadata: Metadata = {
         },
 };
 
+// Applies the persisted theme class before paint, avoiding a light/dark flash on load.
+const NO_FLASH_THEME_SCRIPT = `
+try {
+  var t = localStorage.getItem('theme');
+  if (t ? t === 'dark' : true) {
+    document.documentElement.classList.add('dark');
+  }
+} catch (e) {}
+`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -64,6 +74,7 @@ export default function RootLayout({
       <head>
         {/* TODO: replace with your own Bing Webmaster verification code */}
         {/* <meta name="msvalidate.01" content="REPLACE_ME_BING_VERIFICATION" /> */}
+        <script dangerouslySetInnerHTML={{ __html: NO_FLASH_THEME_SCRIPT }} />
         {/* Google Tag Manager. Set NEXT_PUBLIC_GTM_ID (e.g. GTM-XXXXXXX) to switch it on. */}
         {GTM_ID && (
           <Script id="gtm" strategy="afterInteractive">
@@ -77,7 +88,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
           rel="stylesheet"
         />
         <link
@@ -94,10 +105,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           strategy="afterInteractive"
         /> */}
       </head>
-      <body className="min-h-screen flex flex-col bg-white text-gray-900">
+      <body className="min-h-screen flex flex-col bg-bg text-ink">
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-white focus:text-brand-600 focus:font-semibold"
+          className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-bg-elevated focus:text-accent focus:font-semibold"
         >
           Skip to content
         </a>

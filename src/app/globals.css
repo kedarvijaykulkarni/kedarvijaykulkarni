@@ -1,20 +1,70 @@
 @import "tailwindcss";
 
+/* Enables `dark:` variants driven by a `.dark` class on <html>, toggled by ThemeToggle.tsx */
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --bg: oklch(99% 0.004 250);
+  --bg-alt: oklch(96% 0.006 250);
+  --bg-elevated: oklch(100% 0 0);
+  --border: oklch(89% 0.008 250);
+  --ink: oklch(23% 0.02 250);
+  --ink-secondary: oklch(45% 0.02 250);
+  --ink-tertiary: oklch(58% 0.015 250);
+  --accent: oklch(52% 0.14 195);
+  --accent-soft: oklch(52% 0.14 195 / 0.1);
+  --accent-border: oklch(52% 0.14 195 / 0.25);
+  --cta: oklch(58% 0.18 55);
+  --cta-hover: oklch(52% 0.18 55);
+  --cta-text: oklch(99% 0.005 55);
+  --glow: oklch(52% 0.14 195 / 0.08);
+  --grid-line: oklch(0% 0 0 / 0.035);
+}
+
+.dark {
+  --bg: oklch(15% 0.015 250);
+  --bg-alt: oklch(18% 0.016 250);
+  --bg-elevated: oklch(21% 0.017 250);
+  --border: oklch(32% 0.02 250);
+  --ink: oklch(96% 0.005 250);
+  --ink-secondary: oklch(70% 0.02 250);
+  --ink-tertiary: oklch(52% 0.02 250);
+  --accent: oklch(78% 0.14 195);
+  --accent-soft: oklch(78% 0.14 195 / 0.14);
+  --accent-border: oklch(78% 0.14 195 / 0.3);
+  --cta: oklch(75% 0.16 55);
+  --cta-hover: oklch(70% 0.17 55);
+  --cta-text: oklch(18% 0.02 55);
+  --glow: oklch(78% 0.14 195 / 0.12);
+  --grid-line: oklch(100% 0 0 / 0.035);
+}
+
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
 
   /* ===========================================================================
-     BRAND COLORS — used together across the site:
-       • BRAND  = purple — primary: links, kickers, headline highlights,
-         icons, blog covers, nav hover.
-       • ACCENT = pink — used on the primary call-to-action buttons for pop.
-
-     Tokens: bg-brand-500 / text-brand-600 (purple) and bg-accent-500 /
-     hover:bg-accent-600 (pink). To recolor, swap the hex values below with
-     any scale from https://tailwindcss.com/docs/colors
+     REDESIGN TOKENS (2026) — dark/light "technical" theme for the homepage.
+     Backed by CSS variables above so they can flip with the `.dark` class.
+     The original brand/accent purple-pink scale below is kept for the
+     blog pages (.blog-content) and is intentionally untouched.
      =========================================================================== */
+  --color-bg: var(--bg);
+  --color-bg-alt: var(--bg-alt);
+  --color-bg-elevated: var(--bg-elevated);
+  --color-border: var(--border);
+  --color-ink: var(--ink);
+  --color-ink-secondary: var(--ink-secondary);
+  --color-ink-tertiary: var(--ink-tertiary);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-border: var(--accent-border);
+  --color-cta: var(--cta);
+  --color-cta-hover: var(--cta-hover);
+  --color-cta-text: var(--cta-text);
 
-  /* --- PRIMARY: PURPLE --- */
+  /* --- PRIMARY: PURPLE (legacy — blog pages only) --- */
   --color-brand-50:  #f5f3ff;
   --color-brand-100: #ede9fe;
   --color-brand-200: #ddd6fe;
@@ -23,18 +73,21 @@
   --color-brand-600: #7c3aed;
   --color-brand-700: #6d28d9;
 
-  /* --- ACCENT: PINK --- */
-  --color-accent-50:  #fdf2f8;
-  --color-accent-100: #fce7f3;
-  --color-accent-200: #fbcfe8;
-  --color-accent-400: #f472b6;
-  --color-accent-500: #ec4899;
-  --color-accent-600: #db2777;
-  --color-accent-700: #be185d;
+  /* --- ACCENT: PINK (legacy — blog pages only) --- */
+  --color-accent-legacy-50:  #fdf2f8;
+  --color-accent-legacy-100: #fce7f3;
+  --color-accent-legacy-200: #fbcfe8;
+  --color-accent-legacy-400: #f472b6;
+  --color-accent-legacy-500: #ec4899;
+  --color-accent-legacy-600: #db2777;
+  --color-accent-legacy-700: #be185d;
 }
 
 body {
   font-family: var(--font-sans);
+  background: var(--color-bg);
+  color: var(--color-ink);
+  transition: background-color 0.25s ease, color 0.25s ease;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -45,7 +98,7 @@ img:not([class*="h-"]) {
   height: auto;
 }
 
-/* Blog content styles */
+/* Blog content styles — unchanged, still uses the legacy purple brand scale */
 .blog-content {
   font-size: 17.5px;
   overflow-wrap: break-word;
