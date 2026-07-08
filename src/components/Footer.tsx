@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 
-const BRAND_NAME = "Kedar Kulkarni";
 const links = [
   { label: "GitHub", href: "https://github.com/kedarvijaykulkarni" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/kedarvijaykulkarni" },
@@ -12,29 +11,29 @@ const links = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-gray-200 bg-gray-50">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex flex-wrap items-center justify-between gap-4">
+    <footer className="border-t border-border bg-bg-alt">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-5 flex flex-wrap items-center justify-between gap-4">
         <Link
           href="/"
-          aria-label={`${BRAND_NAME} home`}
-          className="text-base font-extrabold tracking-tight text-gray-900"
+          aria-label="Kedar Kulkarni home"
+          className="font-mono text-sm font-semibold tracking-tight text-ink"
         >
-          {BRAND_NAME}
+          kedar<span className="text-accent">.dev</span>
         </Link>
-        <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs sm:text-sm text-gray-400">
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs sm:text-sm text-ink-tertiary">
           {links.map((l) => (
             <a
               key={l.label}
               href={l.href}
               target={l.href.startsWith("http") ? "_blank" : undefined}
               rel={l.href.startsWith("http") ? "noopener noreferrer" : undefined}
-              className="hover:text-gray-600 transition-colors"
+              className="hover:text-accent transition-colors"
             >
               {l.label}
             </a>
           ))}
-          <Link href="/terms" className="hover:text-gray-600 transition-colors">Terms</Link>
-          <Link href="/privacy" className="hover:text-gray-600 transition-colors">Privacy</Link>
+          <Link href="/terms" className="hover:text-accent transition-colors">Terms</Link>
+          <Link href="/privacy" className="hover:text-accent transition-colors">Privacy</Link>
         </div>
       </div>
     </footer>

@@ -1,42 +1,44 @@
 "use client";
 
 import Link from "next/link";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
-const BRAND_NAME = "Kedar Kulkarni";
+const BRAND_NAME = "kedar.dev";
 const NAV = [
   { label: "Work", href: "/#work" },
-  { label: "About", href: "/about" },
+  { label: "About", href: "/#about" },
   { label: "Blog", href: "/blog" },
 ];
 const CTA = { label: "Hire me", href: "mailto:kedarvijaykulkarni@gmail.com" };
 
 export function Navbar() {
   return (
-    <header className="bg-white">
+    <header className="sticky top-0 z-40 bg-bg/75 backdrop-blur-md border-b border-border">
       <nav className="max-w-6xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
         {/* Wordmark */}
         <Link
           href="/"
-          aria-label={`${BRAND_NAME} home`}
-          className="text-xl font-extrabold tracking-tight text-gray-900"
+          aria-label="Kedar Kulkarni home"
+          className="font-mono text-base font-semibold tracking-tight text-ink"
         >
-          {BRAND_NAME}
+          kedar<span className="text-accent">.dev</span>
         </Link>
 
-        {/* Nav links + primary CTA */}
-        <div className="flex items-center gap-6">
+        {/* Nav links + toggle + primary CTA */}
+        <div className="flex items-center gap-5 sm:gap-6">
           {NAV.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="hidden sm:inline text-sm font-semibold text-gray-500 hover:text-brand-600 transition-colors"
+              className="hidden sm:inline text-sm font-medium text-ink-secondary hover:text-accent transition-colors"
             >
               {item.label}
             </Link>
           ))}
+          <ThemeToggle />
           <a
             href={CTA.href}
-            className="text-sm font-bold text-white bg-brand-500 hover:bg-brand-600 transition-colors rounded-full px-4 py-2"
+            className="text-sm font-bold text-cta-text bg-cta hover:bg-cta-hover transition-colors rounded-full px-4 py-2"
           >
             {CTA.label}
           </a>
@@ -45,3 +47,5 @@ export function Navbar() {
     </header>
   );
 }
+
+export { BRAND_NAME };
