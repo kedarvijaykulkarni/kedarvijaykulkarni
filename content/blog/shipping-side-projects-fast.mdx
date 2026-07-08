@@ -1,0 +1,69 @@
+---
+title: "How to Ship Side Projects Fast"
+excerpt: "A practical playbook for finishing side projects: cut scope hard, ship in days not months, and let real usage decide what to build next."
+date: "2026-06-05"
+tags: ["side-projects", "shipping", "product", "indie"]
+category: "guides"
+coverImage: "/images/blog/shipping-side-projects-fast.svg"
+readingTime: "4 min read"
+author: "Kedar Kulkarni"
+featured: true
+---
+
+The fastest way to ship a side project is to make it embarrassingly small. Pick one problem, build the thinnest version that solves it, and put it in front of a real person within a week. Scope is the only lever that reliably moves a side project from "someday" to "shipped."
+
+Most side projects die in the gap between idea and launch. Not because the idea was bad, but because the plan was too big to finish in the time and energy you actually have.
+
+## Why do most side projects never ship?
+
+Most side projects stall because the scope quietly grows faster than the available time. A weekend idea becomes a "real" app with auth, billing, settings, and a dashboard before a single user has tried the core feature. Momentum dies long before launch.
+
+The pattern is always the same: you start excited, add "just one more thing," hit a hard part, and lose the thread for a few weeks. By the time you return, the context is gone and the project feels like a chore.
+
+## What should the first version actually include?
+
+Only the one thing that makes the project worth using at all. Everything else is a distraction until that core loop works. If you cannot describe the project in a single sentence, it is too big.
+
+Here is a quick test. Write down the one action a user takes that delivers the value. For a habit tracker, it is "mark a habit done and see a streak." Everything that is not in service of that sentence gets cut from v1:
+
+- No accounts. Use local storage or a single shared link.
+- No settings page. Hardcode sensible defaults.
+- No polish on screens nobody reaches yet.
+- No second feature until the first one is used.
+
+## How fast should you ship?
+
+Aim to ship something usable within five to seven days of focused evenings. A tight deadline forces the scope-cutting that makes projects finishable. If a feature does not fit the window, it waits.
+
+Speed is not about working frantically. It is about refusing to build things you do not yet need. A short timeline is a constraint that does your prioritization for you.
+
+## A simple sequence that works
+
+1. **Write the one-sentence value.** If you cannot, keep narrowing.
+2. **Sketch the single core screen** on paper. One screen, not five.
+3. **Build the happy path only.** Ignore edge cases for now.
+4. **Ship to one real person** and watch them use it.
+5. **Fix what actually blocked them** - nothing else.
+6. **Repeat** based on real usage, not imagined needs.
+
+This loop keeps you honest. Real usage replaces guesswork, and you only ever build the next most-needed thing.
+
+## When is it worth adding more?
+
+Add complexity only after real people use the core loop and ask for the same thing twice. Demand is a far better signal than your own assumptions. If nobody hits a limit, that limit does not need solving yet.
+
+The projects that grow are the ones that shipped small, earned a few real users, and let those users point the way. The ones that fail usually had a beautiful settings page nobody ever saw.
+
+## Frequently Asked Questions
+
+### How small is too small for a first version?
+
+It is rarely too small. If the core loop works and one person finds it useful, it is big enough. Most builders err in the other direction by shipping too much.
+
+### Should I use a framework I already know?
+
+Yes. A side project is the wrong place to learn a new stack and ship fast at the same time. Use familiar tools so the only hard problem is the product itself.
+
+### What if the project needs accounts to be useful?
+
+Reach for the simplest auth you can add in an afternoon, or fake it with a magic link or shared URL. Do not build a full account system before you have proven anyone wants the feature.
