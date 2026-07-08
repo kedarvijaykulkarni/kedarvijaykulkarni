@@ -44,11 +44,14 @@ export function TeamSection() {
             <p>
               Recently I&apos;ve been leading GenAI adoption at Wcities - driving ~80%
               AI-assisted code generation - while staying hands-on with React, Next.js,
-              Node.js, and Python.
+              Node.js, and Python. I&apos;ve been building with LLMs since the GPT-3 era,
+              back before &quot;AI engineer&quot; was a job title.
             </p>
             <p>
-              Based in Thane, India, open to remote, hybrid, or relocation work. If
-              you&apos;re hiring or have a project in mind, get in touch.
+              Based in Thane, India, open to remote, hybrid, or relocation work - and
+              actively targeting Staff Engineer, Tech Lead, AI Engineer, or Full-Stack
+              Architect roles, worldwide. If you&apos;re hiring or have a project in
+              mind, get in touch.
             </p>
           </div>
           <a

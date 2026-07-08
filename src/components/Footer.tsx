@@ -4,6 +4,7 @@ import Link from "next/link";
 
 const links = [
   { label: "GitHub", href: "https://github.com/kedarvijaykulkarni" },
+  { label: "X", href: "https://twitter.com/kedman1234" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/kedarvijaykulkarni" },
   { label: "Medium", href: "https://medium.com/@kedman1234" },
   { label: "Email", href: "mailto:kedarvijaykulkarni@gmail.com" },
@@ -18,7 +19,7 @@ export function Footer() {
           aria-label="Kedar Kulkarni home"
           className="font-mono text-sm font-semibold tracking-tight text-ink"
         >
-          kedar<span className="text-accent">.dev</span>
+          <span className="text-accent">K</span>edar <span className="text-accent">K</span>ulkarni
         </Link>
         <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs sm:text-sm text-ink-tertiary">
           {links.map((l) => (
