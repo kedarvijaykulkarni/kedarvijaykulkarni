@@ -70,7 +70,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         {/* TODO: replace with your own Bing Webmaster verification code */}
         {/* <meta name="msvalidate.01" content="REPLACE_ME_BING_VERIFICATION" /> */}

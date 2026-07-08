@@ -2,7 +2,16 @@
 
 import { motion } from "framer-motion";
 
-const work = [
+type WorkItem = {
+  title: string;
+  tag: string;
+  company: string;
+  description: string;
+  outcome: string;
+  href?: string;
+};
+
+const work: WorkItem[] = [
   {
     title: "CitySeeker & HotelSeeker Platform Modernization",
     tag: "FULL-STACK ARCHITECTURE &middot; AI",
@@ -18,6 +27,7 @@ const work = [
     description:
       "Architected an open-source JavaScript NLP client library and built production prompt pipelines on GPT-3, GPT-4, Cohere, AI21, Whisper, and Hugging Face.",
     outcome: "Shipped 4 live AI integrations - Shopify, LinkedIn, Twitter, and WhatsApp.",
+    href: "https://github.com/mantiumai/mantiumclient-js",
   },
   {
     title: "Angular → React Platform Migration",
@@ -34,6 +44,39 @@ const work = [
     description:
       "Architected a decision-tree authoring tool powering Salesforce-integrated chatbot workflows for a Fortune 500 appliance manufacturer, deployed on Heroku Private Spaces.",
     outcome: "Shipped a full-stack platform (React, Node.js, PostgreSQL) adopted for enterprise customer service automation.",
+  },
+];
+
+type OpenSourceProject = {
+  name: string;
+  description: string;
+  links: { label: string; href: string }[];
+};
+
+const openSourceProjects: OpenSourceProject[] = [
+  {
+    name: "react-light-table",
+    description: "Lightweight, configurable React data table with sorting and pagination.",
+    links: [
+      { label: "GitHub", href: "https://github.com/kedarvijaykulkarni/react-light-table" },
+      { label: "npm", href: "https://www.npmjs.com/package/@kedman1234/react-light-table" },
+    ],
+  },
+  {
+    name: "js_str_utils",
+    description: "String utility toolkit for JavaScript projects.",
+    links: [{ label: "npm", href: "https://www.npmjs.com/package/js_str_utils" }],
+  },
+  {
+    name: "mantiumclient-js",
+    description:
+      "Official open-source JS/Node client I architected for the Mantium AI platform - OpenAI, Cohere, and AI21 integrations.",
+    links: [{ label: "GitHub", href: "https://github.com/mantiumai/mantiumclient-js" }],
+  },
+  {
+    name: "SFOX-Market-Data",
+    description: "Real-time crypto market-data demo built over WebSockets.",
+    links: [{ label: "GitHub", href: "https://github.com/kedarvijaykulkarni/SFOX-Market-Data" }],
   },
 ];
 
@@ -87,9 +130,64 @@ export function WorkSection() {
               <p className="mt-4 pt-4 border-t border-border text-sm font-semibold text-ink">
                 {item.outcome}
               </p>
+              {item.href && (
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-accent hover:opacity-80 transition-opacity"
+                >
+                  View on GitHub &rarr;
+                </a>
+              )}
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mt-16 pt-12 border-t border-border"
+        >
+          <div className="font-mono text-xs font-semibold tracking-widest text-accent mb-3">
+            OPEN SOURCE &amp; DEVELOPER TOOLS
+          </div>
+          <h3 className="font-display font-semibold text-xl text-ink">
+            Public repos &amp; packages
+          </h3>
+          <p className="mt-2 text-sm text-ink-secondary max-w-xl">
+            A few things I&apos;ve built and open-sourced along the way - verifiable code, not just case studies.
+          </p>
+
+          <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {openSourceProjects.map((proj) => (
+              <div
+                key={proj.name}
+                className="rounded-xl bg-bg-elevated border border-border px-5 py-4 hover:border-accent transition-colors"
+              >
+                <h4 className="font-mono text-sm font-semibold text-ink">{proj.name}</h4>
+                <p className="mt-1.5 text-xs leading-relaxed text-ink-secondary">
+                  {proj.description}
+                </p>
+                <div className="mt-3 flex items-center gap-4">
+                  {proj.links.map((link) => (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-mono text-xs font-semibold text-accent hover:opacity-80 transition-opacity"
+                    >
+                      {link.label} &rarr;
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );

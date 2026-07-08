@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
-const BRAND_NAME = "kedar.dev";
+const BRAND_NAME = "Kedar Kulkarni";
 const NAV = [
   { label: "Work", href: "/#work" },
   { label: "About", href: "/#about" },
@@ -21,7 +21,7 @@ export function Navbar() {
           aria-label="Kedar Kulkarni home"
           className="font-mono text-base font-semibold tracking-tight text-ink"
         >
-          kedar<span className="text-accent">.dev</span>
+          <span className="text-accent">K</span>edar <span className="text-accent">K</span>ulkarni
         </Link>
 
         {/* Nav links + toggle + primary CTA */}
