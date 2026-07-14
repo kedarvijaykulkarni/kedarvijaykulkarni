@@ -1,0 +1,103 @@
+---
+title: "A Lightweight React Table Component"
+excerpt: "Why I built @kedman1234/react-light-table, a props-based React table with sorting, search, and selection, and how it compares to TanStack, AG Grid, and MUI X."
+date: "2026-04-12"
+tags: ["react", "open-source", "npm", "frontend", "javascript"]
+category: "guides"
+coverImage: "/images/blog/lightweight-react-table-component.svg"
+readingTime: "5 min read"
+author: "Kedar Kulkarni"
+featured: true
+---
+
+`@kedman1234/react-light-table` is a lightweight, props-based React table component with sorting, search, and row selection built in, published to npm as a middle ground between headless libraries like TanStack Table and heavier grids like AG Grid or MUI X Data Grid. Install it, pass columns and data, and you get a fully working table.
+
+```
+npm install @kedman1234/react-light-table
+```
+
+This is my first published npm package, and this post covers the problem it solves, how it works, and how it stacks up against the alternatives.
+
+## What problem does react-light-table solve?
+
+Every time I needed a data table in React, I hit the same dilemma: TanStack Table gives full control but requires 50-80 lines of boilerplate for a basic table, AG Grid and MUI X Data Grid come with everything built in but add 90-200 KB gzipped to the bundle, or I write it from scratch again.
+
+I wanted something in between - a component that renders a fully functional, styled table with sorting, searching, and row selection from a single import, without the bundle weight of an enterprise grid.
+
+- **TanStack Table**: incredibly powerful and headless, but you write all the UI yourself - headers, rows, cells, pagination controls, sort indicators. Great for custom design systems, overkill for most dashboards.
+- **AG Grid / MUI X Data Grid**: everything out of the box, but 90-200 KB gzipped added to your bundle, with complex licensing for advanced features. A simple user list doesn't need pivot tables and Excel export.
+- **Writing it from scratch**: we've all been here.
+
+## How do you use react-light-table?
+
+You give it columns and data, and it renders a working table - no `useReactTable` hook, no `getCoreRowModel`, no custom thead/tbody markup. Just props.
+
+```jsx
+import { Table } from '@kedman1234/react-light-table';
+import '@kedman1234/react-light-table/dist/index.css';
+
+<Table
+  columns={[
+    { key: 'name', path: 'name', label: 'Name', sortable: true, className: 'name-col' },
+    { key: 'email', path: 'email', label: 'Email', className: 'email-col' },
+    { key: 'role', path: 'role', label: 'Role', className: 'role-col' },
+  ]}
+  url="https://api.example.com/users"
+  isSearchable={true}
+  isSelectable={true}
+/>
+```
+
+That's the entire code needed for a sortable, searchable, selectable table.
+
+## How does it compare to TanStack Table, AG Grid, and MUI X Data Grid?
+
+react-light-table trades configurability for speed of setup: about 8 KB gzipped with built-in UI, sorting, and search, versus 90-200 KB for the enterprise grids or a headless-but-DIY approach with TanStack Table.
+
+| | react-light-table | TanStack Table | AG Grid | MUI X Data Grid |
+|---|---|---|---|---|
+| Setup time | 2 min - import, pass props | 15-30 min - hooks, row models, custom markup | 5-10 min, then config ramps up | 5-10 min, tied to MUI |
+| Bundle size | ~8 KB gzipped | ~9 KB gzipped (UI not included) | ~150 KB gzipped | ~90-200 KB gzipped |
+| Built-in UI | Yes, styled and ready | No - headless | Yes, full enterprise UI | Yes, Material Design |
+| Learning curve | Props-based | Moderate - hooks, row models, context | Steep - massive API | Moderate - MUI knowledge |
+| Custom formatters | Yes, per-column | Yes, full cell control | Yes, cell renderers | Yes, renderCell |
+| Built-in search | Yes, `isSearchable` prop | Manual - wire it yourself | Yes, quick filter | Yes, toolbar filter |
+| Row selection | Yes, `isSelectable` prop | Manual - hook + custom UI | Yes, built in | Yes, built in |
+| Column show/hide | Yes, built-in toggle | Manual | Yes, built-in panel | Yes, toolbar |
+| Zero dependencies | Yes, React only | Yes, minimal | No, own framework | No, requires MUI, Emotion |
+
+## When should you use react-light-table instead of the alternatives?
+
+Reach for react-light-table on small-to-medium datasets - admin panels, dashboards, internal tools - where bundle size matters and you want sorting, search, and selection without writing boilerplate. Reach for the alternatives when you need more.
+
+- **Use react-light-table when**: your dataset is small to medium (up to a few thousand rows), you want a working table in minutes, and bundle size matters.
+- **Use TanStack Table when**: you need 100% UI control with a custom design system, or virtualization for 10,000+ rows.
+- **Use AG Grid or MUI X when**: you need enterprise features like pivot tables, Excel export, or tree data, and licensing cost isn't a concern.
+
+## What did I learn publishing my first npm package?
+
+Publishing taught me more about npm's current tooling than about React itself - security requirements and package-config details that don't show up until you actually ship.
+
+- npm now requires WebAuthn security keys for 2FA on new accounts, not authenticator apps.
+- Scoped packages (`@scope/name`) are private by default - you must publish with `--access public`.
+- `react` belongs in `peerDependencies`, not `dependencies`, to avoid the duplicate-React bug.
+- `npm pack --dry-run` shows exactly what will ship before you publish.
+- A `prepublishOnly` script stops you from accidentally publishing un-built code.
+
+## Frequently Asked Questions
+
+### Is react-light-table free to use?
+
+Yes. It's MIT licensed and free forever, with React as its only peer dependency.
+
+### Does it work with React 19?
+
+Yes, it's built to be React 19 compatible.
+
+### What features does it include today?
+
+Column sorting, full-text search, row selection with select-all, column visibility toggling, custom cell formatters, and the ability to fetch data from a URL or pass local data - all with plain CSS classes and no CSS-in-JS lock-in.
+
+### Where can I get it or report a bug?
+
+Install it from npm at `@kedman1234/react-light-table`, or view the source on GitHub at github.com/kedarvijaykulkarni/react-light-table. Issues and pull requests are welcome. This is v1 - pagination, TypeScript types, and CSS-variable theming are next.

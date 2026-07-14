@@ -70,7 +70,7 @@ export function BlogPostContent({
     <Link
       key={tag}
       href={`/blog?tag=${encodeURIComponent(tag)}`}
-      className="text-xs font-semibold tracking-wide uppercase text-gray-600 bg-gray-100 px-3 py-1 rounded-full hover:bg-gray-200 transition-colors"
+      className="text-xs font-semibold tracking-wide uppercase text-ink-secondary bg-bg-alt px-3 py-1 rounded-full hover:bg-border transition-colors"
     >
       {tag}
     </Link>
@@ -83,27 +83,27 @@ export function BlogPostContent({
         <div className="flex flex-wrap gap-2 mb-5">
           {tagPills}
         </div>
-        <h1 className="text-center text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight tracking-tight mb-4">
+        <h1 className="text-center text-3xl sm:text-4xl lg:text-5xl font-extrabold text-ink leading-tight tracking-tight mb-4">
           {title}
         </h1>
-        <div className="flex items-center gap-3 text-sm text-gray-400 font-medium flex-wrap justify-center">
+        <div className="flex items-center gap-3 text-sm text-ink-tertiary font-medium flex-wrap justify-center">
           <span>
             By{" "}
             <a
               href={authorInfo.linkedin}
               rel="author"
               target="_blank"
-              className="text-gray-600 hover:text-brand-600 transition-colors"
+              className="text-ink-secondary hover:text-accent transition-colors"
             >
               {authorInfo.name}
             </a>
             , {authorInfo.title}
           </span>
-          <span className="text-gray-200">|</span>
+          <span className="text-border">|</span>
           <span>{formattedDate}</span>
           {readingTime && (
             <>
-              <span className="text-gray-200">|</span>
+              <span className="text-border">|</span>
               <span>{readingTime}</span>
             </>
           )}
@@ -157,7 +157,7 @@ export function BlogPostContent({
       </div>
 
       {/* Tags at bottom */}
-      <div className="max-w-3xl mx-auto mt-12 pt-8 border-t border-gray-100">
+      <div className="max-w-3xl mx-auto mt-12 pt-8 border-t border-border">
         <div className="flex flex-wrap gap-2">
           {tagPills}
         </div>
@@ -166,16 +166,16 @@ export function BlogPostContent({
       {/* Related posts */}
       {relatedPosts && relatedPosts.length > 0 && (
         <div className="max-w-3xl mx-auto mt-16">
-          <h3 className="text-xl font-bold text-gray-900 mb-6">Related Articles</h3>
+          <h3 className="text-xl font-bold text-ink mb-6">Related Articles</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {relatedPosts.map((post) => (
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
-                className="group block bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-300"
+                className="group block bg-bg-elevated rounded-2xl overflow-hidden border border-border hover:shadow-xl transition-all duration-300"
               >
                 {post.coverImage ? (
-                  <span className="block aspect-video bg-gray-100 overflow-hidden relative">
+                  <span className="block aspect-video bg-bg-alt overflow-hidden relative">
                     <Image
                       src={post.coverImage}
                       alt={post.title}
@@ -185,20 +185,20 @@ export function BlogPostContent({
                     />
                   </span>
                 ) : (
-                  <span className="block aspect-video bg-gradient-to-br from-brand-50 to-brand-50 flex items-center justify-center">
-                    <span className="text-4xl font-extrabold text-brand-200">K</span>
+                  <span className="block aspect-video bg-bg-alt flex items-center justify-center">
+                    <span className="text-4xl font-extrabold text-border">K</span>
                   </span>
                 )}
                 <span className="block p-4">
                   {post.tags[0] && (
-                    <span className="text-xs font-semibold tracking-wide uppercase text-gray-500">
+                    <span className="text-xs font-semibold tracking-wide uppercase text-ink-tertiary">
                       {post.tags[0]}
                     </span>
                   )}
-                  <h4 className="mt-1 text-sm font-bold text-gray-900 group-hover:text-brand-600 transition-colors line-clamp-2">
+                  <h4 className="mt-1 text-sm font-bold text-ink group-hover:text-accent transition-colors line-clamp-2">
                     {post.title}
                   </h4>
-                  <div className="mt-2 flex items-center gap-2 text-xs text-gray-400">
+                  <div className="mt-2 flex items-center gap-2 text-xs text-ink-tertiary">
                     <span>
                       {new Date(post.date).toLocaleDateString("en-US", {
                         month: "short",
@@ -209,7 +209,7 @@ export function BlogPostContent({
                     </span>
                     {post.readingTime && (
                       <>
-                        <span className="text-gray-200">|</span>
+                        <span className="text-border">|</span>
                         <span>{post.readingTime}</span>
                       </>
                     )}

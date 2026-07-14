@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://kedarvijaykulkarni.vercel.app";
 
 export const metadata: Metadata = {
   title: "About | Kedar Kulkarni",
@@ -16,6 +16,14 @@ export const metadata: Metadata = {
       "About Kedar Kulkarni - a Full-Stack Architect & AI Engineer with 20+ years building enterprise platforms and production GenAI systems.",
     url: `${SITE_URL}/about`,
     images: [{ url: `${SITE_URL}/og-default.png`, width: 1200, height: 630, alt: "About Kedar Kulkarni" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@kedman1234",
+    title: "About | Kedar Kulkarni",
+    description:
+      "About Kedar Kulkarni - a Full-Stack Architect & AI Engineer with 20+ years building enterprise platforms and production GenAI systems.",
+    images: [`${SITE_URL}/og-default.png`],
   },
 };
 
@@ -79,6 +87,7 @@ export default function AboutPage() {
     sameAs: [
       "https://github.com/kedarvijaykulkarni",
       "https://www.linkedin.com/in/kedarvijaykulkarni",
+      "https://twitter.com/kedman1234",
       "https://medium.com/@kedman1234",
     ],
     knowsAbout: [
@@ -105,28 +114,28 @@ export default function AboutPage() {
       />
 
       {/* Section 1: Hero */}
-      <section className="bg-gray-100 pt-20 sm:pt-28 pb-16 sm:pb-20">
+      <section className="bg-bg-alt pt-20 sm:pt-28 pb-16 sm:pb-20">
         <div className="max-w-[720px] mx-auto px-4 sm:px-6 text-center">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight mb-4">
-            About <span className="text-brand-500">Kedar Kulkarni</span>
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-ink tracking-tight mb-4">
+            About <span className="text-accent">Kedar Kulkarni</span>
           </h1>
-          <p className="text-lg sm:text-xl text-gray-500 leading-relaxed">
+          <p className="text-lg sm:text-xl text-ink-secondary leading-relaxed">
             Full-Stack Architect &amp; AI Engineer building enterprise platforms
             and the AI systems that run them.
           </p>
-          <p className="mt-4 text-sm font-semibold text-gray-400 tracking-wide">
+          <p className="mt-4 text-sm font-semibold text-ink-tertiary tracking-wide">
             Thane, Maharashtra, India &middot; Open to Remote / Hybrid / Relocation
           </p>
         </div>
       </section>
 
       {/* Section 2: The Story */}
-      <section className="bg-white py-16 sm:py-20">
+      <section className="bg-bg py-16 sm:py-20">
         <div className="max-w-[640px] mx-auto px-4 sm:px-6">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">
+          <h2 className="text-2xl sm:text-3xl font-bold text-ink mb-6">
             Hi, I&apos;m Kedar
           </h2>
-          <div className="space-y-4 text-base text-gray-700 leading-relaxed">
+          <div className="space-y-4 text-base text-ink-secondary leading-relaxed">
             <p>
               I&apos;m a Senior Software Engineer and Full-Stack Architect with
               20+ years designing, building, and modernizing enterprise software
@@ -160,22 +169,22 @@ export default function AboutPage() {
       </section>
 
       {/* Section 3: Skills & Stack */}
-      <section className="bg-gray-100 py-16 sm:py-20">
+      <section className="bg-bg-alt py-16 sm:py-20">
         <div className="max-w-[720px] mx-auto px-4 sm:px-6">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-10 text-center">
+          <h2 className="text-2xl sm:text-3xl font-bold text-ink mb-10 text-center">
             Skills &amp; stack
           </h2>
           <div className="space-y-8">
             {skillGroups.map((group) => (
               <div key={group.category}>
-                <h3 className="text-sm font-semibold uppercase tracking-wide text-brand-500 mb-3">
+                <h3 className="text-sm font-semibold uppercase tracking-wide text-accent mb-3">
                   {group.category}
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {group.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="text-sm font-medium text-gray-700 bg-white border border-gray-200 rounded-full px-4 py-1.5"
+                      className="text-sm font-medium text-ink-secondary bg-bg-elevated border border-border rounded-full px-4 py-1.5"
                     >
                       {skill}
                     </span>
@@ -188,36 +197,36 @@ export default function AboutPage() {
       </section>
 
       {/* Section 4: Certifications */}
-      <section className="bg-white py-16 sm:py-20">
+      <section className="bg-bg py-16 sm:py-20">
         <div className="max-w-[720px] mx-auto px-4 sm:px-6">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-10 text-center">
+          <h2 className="text-2xl sm:text-3xl font-bold text-ink mb-10 text-center">
             Certifications
           </h2>
 
-          <div className="rounded-2xl border-2 border-brand-200 bg-brand-50 p-6 sm:p-8 mb-6">
-            <h3 className="text-sm font-semibold uppercase tracking-wide text-brand-600 mb-4">
+          <div className="rounded-2xl border-2 border-accent-border bg-accent-soft p-6 sm:p-8 mb-6">
+            <h3 className="text-sm font-semibold uppercase tracking-wide text-accent mb-4">
               {certifications.featured.label}
             </h3>
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {certifications.featured.items.map((item) => (
                 <li
                   key={item}
-                  className="flex items-start gap-2 text-sm font-semibold text-gray-900"
+                  className="flex items-start gap-2 text-sm font-semibold text-ink"
                 >
-                  <span className="text-brand-500 mt-0.5">&#10003;</span>
+                  <span className="text-accent mt-0.5">&#10003;</span>
                   {item}
                 </li>
               ))}
             </ul>
           </div>
 
-          <div className="rounded-2xl border border-gray-200 bg-gray-50 p-6 sm:p-8">
-            <h3 className="text-sm font-semibold uppercase tracking-wide text-gray-500 mb-4">
+          <div className="rounded-2xl border border-border bg-bg-elevated p-6 sm:p-8">
+            <h3 className="text-sm font-semibold uppercase tracking-wide text-ink-tertiary mb-4">
               Also certified in
             </h3>
             <ul className="space-y-2">
               {certifications.other.map((item) => (
-                <li key={item} className="text-sm text-gray-600">
+                <li key={item} className="text-sm text-ink-secondary">
                   {item}
                 </li>
               ))}
@@ -227,11 +236,11 @@ export default function AboutPage() {
       </section>
 
       {/* Section 5: Profile */}
-      <section className="bg-gray-100 py-16 sm:py-20">
+      <section className="bg-bg-alt py-16 sm:py-20">
         <div className="max-w-[900px] mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 max-w-sm mx-auto gap-8">
-            <div className="bg-white rounded-2xl p-6 text-center shadow-sm">
-              <div className="w-40 h-40 mx-auto mb-4 rounded-2xl overflow-hidden bg-gray-200">
+            <div className="bg-bg-elevated rounded-2xl p-6 text-center shadow-sm">
+              <div className="w-40 h-40 mx-auto mb-4 rounded-2xl overflow-hidden bg-bg-alt">
                 <Image
                   src="/images/kedar-3.png"
                   alt="Kedar Kulkarni, Full-Stack Architect & AI Engineer"
@@ -240,11 +249,11 @@ export default function AboutPage() {
                   className="w-full h-full object-cover object-top"
                 />
               </div>
-              <h3 className="text-lg font-bold text-gray-900">Kedar Kulkarni</h3>
-              <p className="text-sm text-brand-500 font-medium mb-3">
+              <h3 className="text-lg font-bold text-ink">Kedar Kulkarni</h3>
+              <p className="text-sm text-accent font-medium mb-3">
                 Full-Stack Architect &amp; AI Engineer
               </p>
-              <p className="text-sm text-gray-500 leading-relaxed mb-4 min-h-[80px]">
+              <p className="text-sm text-ink-tertiary leading-relaxed mb-4 min-h-[80px]">
                 20+ years architecting enterprise platforms - now building the
                 AI systems that run them.
               </p>
@@ -252,7 +261,7 @@ export default function AboutPage() {
                 href="https://www.linkedin.com/in/kedarvijaykulkarni"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-brand-500 hover:text-brand-600 font-medium"
+                className="text-sm text-accent hover:opacity-80 transition-opacity font-medium"
               >
                 LinkedIn →
               </a>
@@ -262,12 +271,12 @@ export default function AboutPage() {
       </section>
 
       {/* Section 6: What I do */}
-      <section className="bg-white py-16 sm:py-20">
+      <section className="bg-bg py-16 sm:py-20">
         <div className="max-w-[640px] mx-auto px-4 sm:px-6 text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">
+          <h2 className="text-2xl sm:text-3xl font-bold text-ink mb-6">
             What I do
           </h2>
-          <div className="space-y-4 text-base text-gray-700 leading-relaxed text-left">
+          <div className="space-y-4 text-base text-ink-secondary leading-relaxed text-left">
             <p>
               I help companies modernize legacy systems into scalable
               full-stack platforms, and I help teams adopt AI - from
@@ -284,7 +293,7 @@ export default function AboutPage() {
               The best way to start a conversation is to{" "}
               <a
                 href="mailto:kedarvijaykulkarni@gmail.com"
-                className="text-brand-500 hover:text-brand-600"
+                className="text-accent hover:opacity-80 transition-opacity"
               >
                 send me an email
               </a>

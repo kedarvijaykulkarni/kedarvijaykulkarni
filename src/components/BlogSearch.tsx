@@ -64,9 +64,9 @@ export function BlogSearch({ posts, categories, allTags }: BlogSearchProps) {
 
       {/* Search - pill style matching landing page */}
       <div className="flex justify-center mb-8">
-        <div className="w-full max-w-md bg-white rounded-full shadow-md border border-gray-100 overflow-hidden flex items-center">
+        <div className="w-full max-w-md bg-bg-elevated rounded-full shadow-md border border-border overflow-hidden flex items-center">
           <svg
-            className="ml-4 h-4 w-4 text-gray-400 shrink-0"
+            className="ml-4 h-4 w-4 text-ink-tertiary shrink-0"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -84,7 +84,7 @@ export function BlogSearch({ posts, categories, allTags }: BlogSearchProps) {
             aria-label="Search articles"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="flex-1 px-3 py-3 text-sm text-gray-900 placeholder-gray-400 bg-transparent outline-none"
+            className="flex-1 px-3 py-3 text-sm text-ink placeholder-ink-tertiary bg-transparent outline-none"
           />
         </div>
       </div>
@@ -96,8 +96,8 @@ export function BlogSearch({ posts, categories, allTags }: BlogSearchProps) {
             onClick={() => setSelectedCategory("")}
             className={`px-4 py-1.5 rounded-full text-sm font-semibold transition-colors ${
               !selectedCategory
-                ? "bg-brand-500 text-white shadow-sm"
-                : "bg-gray-100 text-gray-500 hover:bg-gray-200"
+                ? "bg-accent text-cta-text shadow-sm"
+                : "bg-bg-alt text-ink-tertiary hover:bg-border"
             }`}
           >
             All
@@ -110,8 +110,8 @@ export function BlogSearch({ posts, categories, allTags }: BlogSearchProps) {
               }
               className={`px-4 py-1.5 rounded-full text-sm font-semibold transition-colors capitalize ${
                 selectedCategory === cat
-                  ? "bg-brand-500 text-white shadow-sm"
-                  : "bg-gray-100 text-gray-500 hover:bg-gray-200"
+                  ? "bg-accent text-cta-text shadow-sm"
+                  : "bg-bg-alt text-ink-tertiary hover:bg-border"
               }`}
             >
               {cat.replace(/-/g, " ")}
@@ -129,8 +129,8 @@ export function BlogSearch({ posts, categories, allTags }: BlogSearchProps) {
               onClick={() => toggleTag(tag)}
               className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
                 selectedTags.includes(tag)
-                  ? "bg-gray-200 text-gray-700 ring-1 ring-gray-300"
-                  : "bg-gray-50 text-gray-400 hover:bg-gray-100 hover:text-gray-600"
+                  ? "bg-border text-ink ring-1 ring-border"
+                  : "bg-bg-alt text-ink-tertiary hover:bg-border hover:text-ink-secondary"
               }`}
             >
               {tag}
@@ -154,10 +154,10 @@ export function BlogSearch({ posts, categories, allTags }: BlogSearchProps) {
             <article key={post.slug}>
               <Link
                 href={`/blog/${post.slug}`}
-                className="group block bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-300"
+                className="group block bg-bg-elevated rounded-2xl overflow-hidden border border-border hover:shadow-xl transition-all duration-300"
               >
                 {post.coverImage ? (
-                  <div className="aspect-video bg-gray-100 overflow-hidden">
+                  <div className="aspect-video bg-bg-alt overflow-hidden">
                     <img
                       src={post.coverImage}
                       alt={post.title}
@@ -169,25 +169,25 @@ export function BlogSearch({ posts, categories, allTags }: BlogSearchProps) {
                     />
                   </div>
                 ) : (
-                  <div className="aspect-video bg-gradient-to-br from-brand-50 to-brand-50 flex items-center justify-center">
-                    <span className="text-4xl font-extrabold text-brand-200">
+                  <div className="aspect-video bg-bg-alt flex items-center justify-center">
+                    <span className="text-4xl font-extrabold text-border">
                       S
                     </span>
                   </div>
                 )}
                 <div className="p-6">
                   {post.tags[0] && (
-                    <span className="text-xs font-semibold tracking-wide uppercase text-gray-500">
+                    <span className="text-xs font-semibold tracking-wide uppercase text-ink-tertiary">
                       {post.tags[0]}
                     </span>
                   )}
-                  <h2 className="mt-2 text-lg font-bold text-gray-900 group-hover:text-brand-600 transition-colors line-clamp-2">
+                  <h2 className="mt-2 text-lg font-bold text-ink group-hover:text-accent transition-colors line-clamp-2">
                     {post.title}
                   </h2>
-                  <p className="mt-2 text-sm text-gray-500 line-clamp-2 leading-relaxed">
+                  <p className="mt-2 text-sm text-ink-tertiary line-clamp-2 leading-relaxed">
                     {post.excerpt}
                   </p>
-                  <div className="mt-4 flex items-center gap-3 text-xs font-medium text-gray-400">
+                  <div className="mt-4 flex items-center gap-3 text-xs font-medium text-ink-tertiary">
                     <time dateTime={post.date}>
                       {new Date(post.date).toLocaleDateString("en-US", {
                         month: "short",
@@ -198,7 +198,7 @@ export function BlogSearch({ posts, categories, allTags }: BlogSearchProps) {
                     </time>
                     {post.readingTime && (
                       <>
-                        <span className="text-gray-200">|</span>
+                        <span className="text-border">|</span>
                         <span>{post.readingTime}</span>
                       </>
                     )}
@@ -210,14 +210,14 @@ export function BlogSearch({ posts, categories, allTags }: BlogSearchProps) {
         </div>
       ) : (
         <div className="text-center py-20">
-          <p className="text-lg text-gray-400">No posts found.</p>
+          <p className="text-lg text-ink-tertiary">No posts found.</p>
           <button
             onClick={() => {
               setQuery("");
               setSelectedCategory("");
               setSelectedTags([]);
             }}
-            className="mt-4 text-sm font-semibold text-brand-600 hover:text-brand-700"
+            className="mt-4 text-sm font-semibold text-accent hover:opacity-80 transition-opacity"
           >
             Clear all filters
           </button>

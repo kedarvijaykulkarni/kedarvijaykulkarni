@@ -9,7 +9,7 @@ import { getFeaturedPosts } from "@/lib/mdx";
 import { faqs } from "@/lib/faq-data";
 import Link from "next/link";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://kedarvijaykulkarni.vercel.app";
 
 export const metadata: Metadata = {
   alternates: {
@@ -33,6 +33,7 @@ export default function Home() {
     sameAs: [
       "https://github.com/kedarvijaykulkarni",
       "https://www.linkedin.com/in/kedarvijaykulkarni",
+      "https://twitter.com/kedman1234",
       "https://medium.com/@kedman1234",
     ],
     knowsAbout: [
@@ -100,13 +101,13 @@ export default function Home() {
 
       {/* Blog links section for internal linking + SEO juice */}
       {recentPosts.length > 0 && (
-        <section className="py-16 bg-gray-50">
+        <section className="py-16 bg-bg-alt">
           <div className="max-w-6xl mx-auto px-4 sm:px-6">
             <div className="text-center mb-10">
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
+              <h2 className="text-2xl sm:text-3xl font-bold text-ink">
                 From the Blog
               </h2>
-              <p className="mt-2 text-gray-500">
+              <p className="mt-2 text-ink-tertiary">
                 Notes on full-stack engineering, AI systems, and shipping
                 production software.
               </p>
@@ -116,10 +117,10 @@ export default function Home() {
                 <Link
                   key={post.slug}
                   href={`/blog/${post.slug}`}
-                  className="group block bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-lg transition-all duration-300"
+                  className="group block bg-bg-elevated rounded-2xl overflow-hidden border border-border hover:shadow-lg transition-all duration-300"
                 >
                   {post.coverImage ? (
-                    <div className="aspect-video bg-gray-100 overflow-hidden">
+                    <div className="aspect-video bg-bg-alt overflow-hidden">
                       <img
                         src={post.coverImage}
                         alt={post.title}
@@ -127,20 +128,20 @@ export default function Home() {
                       />
                     </div>
                   ) : (
-                    <div className="aspect-video bg-gradient-to-br from-brand-50 to-brand-50 flex items-center justify-center">
-                      <span className="text-4xl font-extrabold text-brand-200">K</span>
+                    <div className="aspect-video bg-bg-alt flex items-center justify-center">
+                      <span className="text-4xl font-extrabold text-border">K</span>
                     </div>
                   )}
                   <div className="p-5">
                     {post.tags[0] && (
-                      <span className="text-xs font-semibold tracking-wide uppercase text-brand-500">
+                      <span className="text-xs font-semibold tracking-wide uppercase text-accent">
                         {post.tags[0]}
                       </span>
                     )}
-                    <h3 className="mt-1 text-base font-bold text-gray-900 group-hover:text-brand-600 transition-colors line-clamp-2">
+                    <h3 className="mt-1 text-base font-bold text-ink group-hover:text-accent transition-colors line-clamp-2">
                       {post.title}
                     </h3>
-                    <p className="mt-2 text-sm text-gray-500 line-clamp-2">
+                    <p className="mt-2 text-sm text-ink-tertiary line-clamp-2">
                       {post.excerpt}
                     </p>
                   </div>
@@ -150,7 +151,7 @@ export default function Home() {
             <div className="text-center mt-8">
               <Link
                 href="/blog"
-                className="inline-flex items-center gap-1 text-sm font-semibold text-brand-600 hover:text-brand-700 transition-colors"
+                className="inline-flex items-center gap-1 text-sm font-semibold text-accent hover:opacity-80 transition-opacity"
               >
                 View all articles &rarr;
               </Link>

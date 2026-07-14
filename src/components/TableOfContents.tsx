@@ -59,9 +59,9 @@ export function TableOfContents({ html }: { html: string }) {
 
   return (
     <nav className="hidden lg:block sticky top-24 pt-8">
-      <h4 className="text-sm font-semibold text-gray-900 mb-3">
+      <h2 className="text-sm font-semibold text-ink mb-3">
         Table of Contents
-      </h4>
+      </h2>
       <ul className="space-y-2 text-sm">
         {headings.map((heading) => (
           <li
@@ -72,8 +72,8 @@ export function TableOfContents({ html }: { html: string }) {
               href={`#${heading.id}`}
               className={`block transition-colors ${
                 activeId === heading.id
-                  ? "text-brand-600 font-medium"
-                  : "text-gray-500 hover:text-gray-900"
+                  ? "text-accent font-medium"
+                  : "text-ink-tertiary hover:text-ink"
               }`}
               onClick={(e) => {
                 e.preventDefault();

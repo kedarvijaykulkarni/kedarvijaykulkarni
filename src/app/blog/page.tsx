@@ -3,7 +3,7 @@ import { getAllPostsMeta, getAllCategories, getAllTags } from "@/lib/mdx";
 import { BlogSearch } from "@/components/BlogSearch";
 import type { Metadata } from "next";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://kedarvijaykulkarni.vercel.app";
 
 type Props = {
   searchParams: Promise<{ tag?: string; category?: string; q?: string }>;
@@ -120,10 +120,10 @@ export default function BlogPage() {
       />
       {/* Server-rendered header - visible to crawlers before JS loads */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-12 sm:pt-16 pb-0 text-center">
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-gray-900 tracking-tight">
-          The <span className="text-brand-500">Blog</span>
+        <h1 className="text-3xl sm:text-5xl font-extrabold text-ink tracking-tight">
+          The <span className="text-accent">Blog</span>
         </h1>
-        <p className="mt-4 text-base sm:text-lg text-gray-500 max-w-2xl mx-auto">
+        <p className="mt-4 text-base sm:text-lg text-ink-secondary max-w-2xl mx-auto">
           Notes on full-stack engineering and AI systems.
         </p>
       </div>

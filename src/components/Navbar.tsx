@@ -6,7 +6,7 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 const BRAND_NAME = "Kedar Kulkarni";
 const NAV = [
   { label: "Work", href: "/#work" },
-  { label: "About", href: "/#about" },
+  { label: "About", href: "/about" },
   { label: "Blog", href: "/blog" },
 ];
 const CTA = { label: "Hire me", href: "mailto:kedarvijaykulkarni@gmail.com" };
