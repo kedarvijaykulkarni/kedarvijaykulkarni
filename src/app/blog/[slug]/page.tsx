@@ -39,6 +39,12 @@ export async function generateStaticParams() {
   return posts.map((post) => ({ slug: post.slug }));
 }
 
+// All valid slugs are known at build time from content/blog/*.mdx. Without
+// this, Next.js renders unlisted slugs on demand and notFound() doesn't
+// propagate a real 404 status code when self-hosted via `next start` —
+// visitors and crawlers see "Post Not Found" copy on an HTTP 200 (soft 404).
+export const dynamicParams = false;
+
 function resolveAuthorName(author?: string): string {
   if (author) return author;
   return "Kedar Kulkarni";
