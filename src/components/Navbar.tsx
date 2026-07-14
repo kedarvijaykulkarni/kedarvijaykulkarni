@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
@@ -13,8 +14,15 @@ const NAV = [
 ];
 const CTA = { label: "Hire me", href: "mailto:kedarvijaykulkarni@gmail.com" };
 
+function isNavItemActive(href: string, pathname: string): boolean {
+  if (href === "/#work") return false;
+  if (href === "/blog") return pathname === "/blog" || pathname.startsWith("/blog/");
+  return pathname === href;
+}
+
 export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <header className="sticky top-0 z-40 bg-bg/60 backdrop-blur-xl border-b border-border">
@@ -30,15 +38,21 @@ export function Navbar() {
 
         {/* Nav links + toggle + primary CTA */}
         <div className="flex items-center gap-6 sm:gap-8">
-          {NAV.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="hidden sm:inline-flex sm:items-center py-3 text-[11px] font-semibold uppercase tracking-widest text-ink-secondary hover:text-ink transition-colors"
-            >
-              {item.label}
-            </Link>
-          ))}
+          {NAV.map((item) => {
+            const active = isNavItemActive(item.href, pathname);
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                aria-current={active ? "page" : undefined}
+                className={`hidden sm:inline-flex sm:items-center py-3 text-[11px] font-semibold uppercase tracking-widest transition-colors ${
+                  active ? "text-accent" : "text-ink-secondary hover:text-ink"
+                }`}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
           <ThemeToggle />
           <a
             href={CTA.href}
@@ -74,16 +88,22 @@ export function Navbar() {
             className="sm:hidden overflow-hidden border-t border-border bg-bg"
           >
             <div className="px-4 py-2 flex flex-col">
-              {NAV.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setMenuOpen(false)}
-                  className="flex items-center min-h-11 text-sm font-semibold text-ink-secondary hover:text-ink transition-colors"
-                >
-                  {item.label}
-                </Link>
-              ))}
+              {NAV.map((item) => {
+                const active = isNavItemActive(item.href, pathname);
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setMenuOpen(false)}
+                    aria-current={active ? "page" : undefined}
+                    className={`flex items-center min-h-11 text-sm font-semibold transition-colors ${
+                      active ? "text-accent" : "text-ink-secondary hover:text-ink"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
               <a
                 href={CTA.href}
                 onClick={() => setMenuOpen(false)}
