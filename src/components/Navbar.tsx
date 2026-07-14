@@ -30,7 +30,7 @@ export function Navbar() {
             <Link
               key={item.href}
               href={item.href}
-              className="hidden sm:inline text-sm font-medium text-ink-secondary hover:text-accent transition-colors"
+              className="hidden sm:inline-flex sm:items-center py-3 text-sm font-medium text-ink-secondary hover:text-accent transition-colors"
             >
               {item.label}
             </Link>
