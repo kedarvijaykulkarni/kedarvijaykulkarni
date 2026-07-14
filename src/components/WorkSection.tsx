@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 type WorkItem = {
   title: string;
@@ -80,7 +81,12 @@ const openSourceProjects: OpenSourceProject[] = [
   },
 ];
 
+const TABS = ["Client Work", "Open Source"] as const;
+type Tab = (typeof TABS)[number];
+
 export function WorkSection() {
+  const [activeTab, setActiveTab] = useState<Tab>("Client Work");
+
   return (
     <section id="work" className="py-24 sm:py-28 bg-bg overflow-hidden scroll-mt-20">
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
@@ -89,7 +95,7 @@ export function WorkSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-xl mx-auto mb-14"
+          className="text-center max-w-xl mx-auto mb-10"
         >
           <div className="font-mono text-xs font-semibold tracking-widest text-accent mb-3">
             02 &mdash; SELECTED WORK
@@ -102,92 +108,113 @@ export function WorkSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
-          {work.map((item, i) => (
-            <motion.div
-              key={item.title}
-              initial={{ opacity: 0, y: 30, scale: 0.97 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: i * 0.08, ease: "easeOut" }}
-              whileHover={{ y: -4 }}
-              className="rounded-2xl bg-bg-elevated border border-border p-7 transition-shadow duration-300 hover:shadow-lg"
-            >
-              <span
-                className="font-mono text-[11px] font-semibold tracking-wide text-accent"
-                dangerouslySetInnerHTML={{ __html: item.tag }}
-              />
-              <h3 className="font-display mt-2.5 text-lg font-semibold text-ink">
-                {item.title}
-              </h3>
-              <p
-                className="mt-1 text-xs font-medium text-ink-tertiary"
-                dangerouslySetInnerHTML={{ __html: item.company }}
-              />
-              <p className="mt-3.5 text-sm leading-relaxed text-ink-secondary">
-                {item.description}
-              </p>
-              <p className="mt-4 pt-4 border-t border-border text-sm font-semibold text-ink">
-                {item.outcome}
-              </p>
-              {item.href && (
-                <a
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-accent hover:opacity-80 transition-opacity"
-                >
-                  View on GitHub &rarr;
-                </a>
-              )}
-            </motion.div>
-          ))}
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mt-16 pt-12 border-t border-border"
-        >
-          <div className="font-mono text-xs font-semibold tracking-widest text-accent mb-3">
-            OPEN SOURCE &amp; DEVELOPER TOOLS
-          </div>
-          <h3 className="font-display font-semibold text-xl text-ink">
-            Public repos &amp; packages
-          </h3>
-          <p className="mt-2 text-sm text-ink-secondary max-w-xl">
-            A few things I&apos;ve built and open-sourced along the way - verifiable code, not just case studies.
-          </p>
-
-          <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {openSourceProjects.map((proj) => (
-              <div
-                key={proj.name}
-                className="rounded-xl bg-bg-elevated border border-border px-5 py-4 hover:border-accent transition-colors"
+        {/* Tab switcher */}
+        <div className="flex justify-center mb-10">
+          <div className="glass-panel inline-flex items-center rounded-full p-1">
+            {TABS.map((tab) => (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(tab)}
+                className={`px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wide transition-colors ${
+                  activeTab === tab
+                    ? "bg-bg-elevated text-ink"
+                    : "text-ink-tertiary hover:text-ink-secondary"
+                }`}
               >
-                <h4 className="font-mono text-sm font-semibold text-ink">{proj.name}</h4>
-                <p className="mt-1.5 text-xs leading-relaxed text-ink-secondary">
-                  {proj.description}
-                </p>
-                <div className="mt-3 flex items-center gap-4">
-                  {proj.links.map((link) => (
-                    <a
-                      key={link.label}
-                      href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-mono text-xs font-semibold text-accent hover:opacity-80 transition-opacity"
-                    >
-                      {link.label} &rarr;
-                    </a>
-                  ))}
-                </div>
-              </div>
+                {tab}
+              </button>
             ))}
           </div>
-        </motion.div>
+        </div>
+
+        <AnimatePresence mode="wait">
+          {activeTab === "Client Work" ? (
+            <motion.div
+              key="client-work"
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -12 }}
+              transition={{ duration: 0.35, ease: "easeOut" }}
+              className="grid grid-cols-1 lg:grid-cols-2 gap-5"
+            >
+              {work.map((item, i) => (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: i * 0.06, ease: "easeOut" }}
+                  whileHover={{ y: -4 }}
+                  className="glass-panel rounded-2xl p-7 transition-all duration-300 hover:border-accent-border hover:shadow-lg"
+                >
+                  <span
+                    className="font-mono text-[11px] font-semibold tracking-wide text-accent"
+                    dangerouslySetInnerHTML={{ __html: item.tag }}
+                  />
+                  <h3 className="font-display mt-2.5 text-lg font-semibold text-ink">
+                    {item.title}
+                  </h3>
+                  <p
+                    className="mt-1 text-xs font-medium text-ink-tertiary"
+                    dangerouslySetInnerHTML={{ __html: item.company }}
+                  />
+                  <p className="mt-3.5 text-sm leading-relaxed text-ink-secondary">
+                    {item.description}
+                  </p>
+                  <p className="mt-4 pt-4 border-t border-border text-sm font-semibold text-ink">
+                    {item.outcome}
+                  </p>
+                  {item.href && (
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-accent hover:opacity-80 transition-opacity"
+                    >
+                      View on GitHub &rarr;
+                    </a>
+                  )}
+                </motion.div>
+              ))}
+            </motion.div>
+          ) : (
+            <motion.div
+              key="open-source"
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -12 }}
+              transition={{ duration: 0.35, ease: "easeOut" }}
+              className="grid grid-cols-1 sm:grid-cols-2 gap-3"
+            >
+              {openSourceProjects.map((proj, i) => (
+                <motion.div
+                  key={proj.name}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: i * 0.06, ease: "easeOut" }}
+                  className="glass-panel rounded-xl px-5 py-4 hover:border-accent-border transition-colors"
+                >
+                  <h4 className="font-mono text-sm font-semibold text-ink">{proj.name}</h4>
+                  <p className="mt-1.5 text-xs leading-relaxed text-ink-secondary">
+                    {proj.description}
+                  </p>
+                  <div className="mt-3 flex items-center gap-4">
+                    {proj.links.map((link) => (
+                      <a
+                        key={link.label}
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-mono text-xs font-semibold text-accent hover:opacity-80 transition-opacity"
+                      >
+                        {link.label} &rarr;
+                      </a>
+                    ))}
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </section>
   );

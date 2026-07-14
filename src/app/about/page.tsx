@@ -117,7 +117,7 @@ export default function AboutPage() {
       <section className="bg-bg-alt pt-20 sm:pt-28 pb-16 sm:pb-20">
         <div className="max-w-[720px] mx-auto px-4 sm:px-6 text-center">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-ink tracking-tight mb-4">
-            About <span className="text-accent">Kedar Kulkarni</span>
+            About <span className="text-gradient-accent">Kedar Kulkarni</span>
           </h1>
           <p className="text-lg sm:text-xl text-ink-secondary leading-relaxed">
             Full-Stack Architect &amp; AI Engineer building enterprise platforms
@@ -184,7 +184,7 @@ export default function AboutPage() {
                   {group.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="text-sm font-medium text-ink-secondary bg-bg-elevated border border-border rounded-full px-4 py-1.5"
+                      className="glass-panel text-sm font-medium text-ink-secondary rounded-full px-4 py-1.5"
                     >
                       {skill}
                     </span>
@@ -220,7 +220,7 @@ export default function AboutPage() {
             </ul>
           </div>
 
-          <div className="rounded-2xl border border-border bg-bg-elevated p-6 sm:p-8">
+          <div className="glass-panel rounded-2xl p-6 sm:p-8">
             <h3 className="text-sm font-semibold uppercase tracking-wide text-ink-tertiary mb-4">
               Also certified in
             </h3>
@@ -239,15 +239,18 @@ export default function AboutPage() {
       <section className="bg-bg-alt py-16 sm:py-20">
         <div className="max-w-[900px] mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 max-w-sm mx-auto gap-8">
-            <div className="bg-bg-elevated rounded-2xl p-6 text-center shadow-sm">
-              <div className="w-40 h-40 mx-auto mb-4 rounded-2xl overflow-hidden bg-bg-alt">
-                <Image
-                  src="/images/kedar-3.png"
-                  alt="Kedar Kulkarni, Full-Stack Architect & AI Engineer"
-                  width={160}
-                  height={160}
-                  className="w-full h-full object-cover object-top"
-                />
+            <div className="glass-panel rounded-2xl p-6 text-center shadow-sm">
+              <div className="relative w-40 h-40 mx-auto mb-4">
+                <div className="absolute -inset-3 rounded-2xl bg-[var(--glow)] blur-xl pointer-events-none" />
+                <div className="relative w-full h-full rounded-2xl overflow-hidden border border-accent-border bg-bg-alt">
+                  <Image
+                    src="/images/kedar-3.png"
+                    alt="Kedar Kulkarni, Full-Stack Architect & AI Engineer"
+                    width={160}
+                    height={160}
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
               </div>
               <h3 className="text-lg font-bold text-ink">Kedar Kulkarni</h3>
               <p className="text-sm text-accent font-medium mb-3">

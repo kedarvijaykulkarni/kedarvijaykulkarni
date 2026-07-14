@@ -13,7 +13,7 @@ const CTA = { label: "Hire me", href: "mailto:kedarvijaykulkarni@gmail.com" };
 
 export function Navbar() {
   return (
-    <header className="sticky top-0 z-40 bg-bg/75 backdrop-blur-md border-b border-border">
+    <header className="sticky top-0 z-40 bg-bg/60 backdrop-blur-xl border-b border-border">
       <nav className="max-w-6xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
         {/* Wordmark */}
         <Link
@@ -21,16 +21,16 @@ export function Navbar() {
           aria-label="Kedar Kulkarni home"
           className="font-mono text-base font-semibold tracking-tight text-ink"
         >
-          <span className="text-accent">K</span>edar <span className="text-accent">K</span>ulkarni
+          <span className="text-gradient-accent">K</span>edar <span className="text-gradient-accent">K</span>ulkarni
         </Link>
 
         {/* Nav links + toggle + primary CTA */}
-        <div className="flex items-center gap-5 sm:gap-6">
+        <div className="flex items-center gap-6 sm:gap-8">
           {NAV.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="hidden sm:inline-flex sm:items-center py-3 text-sm font-medium text-ink-secondary hover:text-accent transition-colors"
+              className="hidden sm:inline-flex sm:items-center py-3 text-[11px] font-semibold uppercase tracking-widest text-ink-secondary hover:text-ink transition-colors"
             >
               {item.label}
             </Link>

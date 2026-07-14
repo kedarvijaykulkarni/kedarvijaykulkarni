@@ -37,7 +37,7 @@ export function FaqSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.05 }}
-              className="bg-bg-elevated border border-border rounded-xl overflow-hidden"
+              className="glass-panel rounded-xl overflow-hidden"
             >
               <button
                 onClick={() => toggle(index)}

@@ -19,7 +19,7 @@ export function Footer() {
           aria-label="Kedar Kulkarni home"
           className="font-mono text-sm font-semibold tracking-tight text-ink"
         >
-          <span className="text-accent">K</span>edar <span className="text-accent">K</span>ulkarni
+          <span className="text-gradient-accent">K</span>edar <span className="text-gradient-accent">K</span>ulkarni
         </Link>
         <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs sm:text-sm text-ink-tertiary">
           {links.map((l) => (

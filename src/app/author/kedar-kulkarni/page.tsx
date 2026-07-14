@@ -76,7 +76,7 @@ export default function KedarKulkarniPage() {
               alt="Kedar Kulkarni, Full-Stack Architect & AI Engineer"
               width={120}
               height={120}
-              className="w-28 h-28 rounded-full object-cover object-top shadow-md"
+              className="w-28 h-28 rounded-full object-cover object-top shadow-md border-2 border-accent-border"
             />
             <div className="text-center sm:text-left">
               <h1 className="text-3xl sm:text-4xl font-bold text-ink tracking-tight">
@@ -122,7 +122,7 @@ export default function KedarKulkarniPage() {
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
-                className="block bg-bg-elevated rounded-xl p-5 border border-border hover:shadow-md transition-shadow"
+                className="glass-panel block rounded-xl p-5 hover:border-accent-border hover:shadow-md transition-shadow"
               >
                 <h3 className="text-base font-bold text-ink hover:text-accent transition-colors">
                   {post.title}

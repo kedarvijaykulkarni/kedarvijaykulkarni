@@ -43,9 +43,9 @@ export function WhatWeDoSection() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: i * 0.08, ease: "easeOut" }}
               whileHover={{ y: -4 }}
-              className="rounded-2xl bg-bg-elevated border border-border p-6 transition-shadow duration-300 hover:shadow-lg"
+              className="group glass-panel rounded-2xl p-6 transition-all duration-300 hover:border-accent-border hover:shadow-lg"
             >
-              <div className="inline-flex items-center justify-center w-9 h-9 rounded-[9px] bg-accent-soft font-mono text-xs font-bold text-accent">
+              <div className="inline-flex items-center justify-center w-9 h-9 rounded-[9px] bg-accent-soft border border-accent-border font-mono text-xs font-bold text-accent shadow-[0_0_18px_var(--glow)] transition-transform duration-300 group-hover:scale-110">
                 {feature.code}
               </div>
               <h3 className="font-display mt-4 text-lg font-semibold text-ink">

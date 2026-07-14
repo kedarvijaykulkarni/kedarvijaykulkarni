@@ -64,7 +64,7 @@ export function BlogSearch({ posts, categories, allTags }: BlogSearchProps) {
 
       {/* Search - pill style matching landing page */}
       <div className="flex justify-center mb-8">
-        <div className="w-full max-w-md bg-bg-elevated rounded-full shadow-md border border-border overflow-hidden flex items-center">
+        <div className="glass-panel w-full max-w-md rounded-full shadow-md overflow-hidden flex items-center">
           <svg
             className="ml-4 h-4 w-4 text-ink-tertiary shrink-0"
             fill="none"
@@ -154,7 +154,7 @@ export function BlogSearch({ posts, categories, allTags }: BlogSearchProps) {
             <article key={post.slug}>
               <Link
                 href={`/blog/${post.slug}`}
-                className="group block bg-bg-elevated rounded-2xl overflow-hidden border border-border hover:shadow-xl transition-all duration-300"
+                className="group glass-panel block rounded-2xl overflow-hidden hover:border-accent-border hover:shadow-xl transition-all duration-300"
               >
                 {post.coverImage ? (
                   <div className="aspect-video bg-bg-alt overflow-hidden">

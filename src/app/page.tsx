@@ -117,7 +117,7 @@ export default function Home() {
                 <Link
                   key={post.slug}
                   href={`/blog/${post.slug}`}
-                  className="group block bg-bg-elevated rounded-2xl overflow-hidden border border-border hover:shadow-lg transition-all duration-300"
+                  className="group glass-panel block rounded-2xl overflow-hidden hover:border-accent-border hover:shadow-lg transition-all duration-300"
                 >
                   {post.coverImage ? (
                     <div className="aspect-video bg-bg-alt overflow-hidden">

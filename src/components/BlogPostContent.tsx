@@ -172,7 +172,7 @@ export function BlogPostContent({
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
-                className="group block bg-bg-elevated rounded-2xl overflow-hidden border border-border hover:shadow-xl transition-all duration-300"
+                className="group glass-panel block rounded-2xl overflow-hidden hover:border-accent-border hover:shadow-xl transition-all duration-300"
               >
                 {post.coverImage ? (
                   <span className="block aspect-video bg-bg-alt overflow-hidden relative">
