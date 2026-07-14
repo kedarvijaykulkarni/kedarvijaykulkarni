@@ -1,102 +1,142 @@
-# Portfolio - Project Instructions for Claude Code
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## Project Overview
 
-This repo is a **standalone personal portfolio website** for a product builder / engineer (placeholder identity: "Alex Rivera"). It is a public marketing/content site with a homepage, an about page, an author page, and a file-based MDX blog. No authentication, no user accounts, no newsletter, no database. The primary call to action is a single **"Hire me"** button that opens a `mailto:` link.
+This is **Kedar Kulkarni's personal portfolio site** — a public marketing/content site with a homepage, an About page, an author page, and a file-based MDX blog. No authentication, no user accounts, no newsletter, no database. The single call to action across the site ("Hire me") opens a `mailto:kedarvijaykulkarni@gmail.com` link.
 
-- **Brand/contact**: Alex Rivera - hello@example.com (placeholders - replace with your own)
-- **Deploy**: Vercel auto-deploys on push to `main`
+- **Deploy**: Vercel, auto-deploys on push to `main`
 - **Package manager**: pnpm
-
-## Tech Stack
-
-- Next.js 16 (App Router) + React 19 + TypeScript
-- Tailwind CSS 4 (no CSS modules, no styled-components)
-- Framer Motion (animations)
-- @vercel/analytics
-- File-based MDX blog (gray-matter + remark)
-
-No Redis, no Beehiiv, no auth, no external data stores.
 
 ## Commands
 
 ```bash
-pnpm dev          # Local dev server
+pnpm dev          # Local dev server (Turbopack)
 pnpm build        # Production build
+pnpm start        # Serve the production build locally
 pnpm lint         # ESLint
 ```
 
-## Project Structure
+There is **no test suite** in this repo (no Jest/Vitest/Playwright config, no `test`/`spec` directories, no `test` script). Don't assume one exists.
 
-```
-src/
-├── app/              # Pages and routes (App Router)
-│   ├── api/indexnow/ # Single serverless route - IndexNow ping (daily cron)
-│   ├── blog/         # Blog index + [slug] dynamic pages
-│   ├── author/       # Author page (alex-rivera)
-│   ├── about/        # About page
-│   ├── terms/, privacy/  # Legal pages
-│   ├── sitemap.ts, robots.ts
-│   ├── feed.xml/, llms.txt/, llms-full.txt/   # auto-generated SEO/LLM files
-│   └── globals.css   # Tailwind import + brand color theme tokens
-├── components/       # React components (Navbar, Footer, Hero, sections, blog)
-└── lib/              # Utilities
-    ├── mdx.ts        # Blog post loading and parsing
-    ├── metadata.ts   # Reusable page metadata generator
-    ├── heading-ids.ts
-    ├── image-optimizer.ts
-    ├── faq-extractor.ts
-    └── faq-data.ts
+## Tech Stack
 
-content/
-└── blog/             # Published MDX blog posts
+- Next.js 16 (App Router) + React 19 + TypeScript
+- Tailwind CSS 4 (`@theme` + CSS custom properties — no CSS modules, no styled-components, no component library)
+- Framer Motion (scroll-reveal animations, tab-switch transitions)
+- `@vercel/analytics`
+- File-based MDX blog (`gray-matter` + `remark`/`remark-gfm`/`remark-html`)
 
-public/
-├── images/blog/      # Blog cover images (SVG, 1200x630)
-└── images/kedar-3.png # Profile avatar placeholder
-```
+No Redis, no auth, no external data stores. There is **no config layer** — brand/content/copy is hardcoded directly in the components and pages that render it, not pulled from a central config file.
 
-There is **no config layer** - all brand/content is hardcoded directly in the relevant components and pages.
+## Architecture
 
-## Blog Posts
+### Rendering strategy
 
-Full instructions in `docs/BLOG-INSTRUCTIONS.md`. Key points:
+| Route | Strategy |
+|---|---|
+| `/`, `/about`, `/terms`, `/privacy`, `/author/kedar-kulkarni` | Static (prerendered) |
+| `/blog/[slug]` | SSG — one static page per MDX file via `generateStaticParams`, **and** `export const dynamicParams = false` |
+| `/blog` | Dynamic (reads search params for filtering) |
+| `/api/indexnow`, `/feed.xml`, `/llms.txt`, `/llms-full.txt`, `/sitemap.xml` | Server-rendered on demand |
 
-- **Location**: `content/blog/{slug}.mdx` - filename = URL slug
-- **Cover image**: `public/images/blog/{slug}.svg` - 1200x630px, always SVG
-- **Frontmatter**: title, excerpt, date, tags, category, coverImage, readingTime, author, featured
-- **Content rules**: BLUF first paragraph, question-based H2s, structured lists/tables, FAQ section
-- **LLM-optimized**: Written for AI citation (structured answers, lists, tables)
-- **Author default**: "Alex Rivera"
+**`dynamicParams = false` on `/blog/[slug]` is load-bearing, not incidental.** All valid slugs are known at build time from `content/blog/*.mdx`. Without it, requesting an unlisted slug falls through to on-demand rendering, and `notFound()` doesn't reliably propagate a real 404 status when self-hosted via `next start` (it renders the "not found" UI under an HTTP 200 — a soft 404 that hurts SEO). With it, Next 404s at the routing layer instead — which is also why a themed root `src/app/not-found.tsx` exists: a routing-layer 404 skips the segment's own `not-found.tsx` and falls back to the nearest ancestor one.
 
-## Design Conventions
+### The blog (MDX) pipeline
 
-- **Primary color**: Purple `#8b5cf6` with pink accent `#ec4899`
-- **Font**: Inter (Google Fonts)
-- **Animations**: Framer Motion (fade-in, scale)
-- **Component style**: Custom Tailwind components - no UI library (no shadcn, no MUI)
-- **Buttons**: Accent pink for the primary CTA, rounded-full
-- **Cards**: rounded-2xl, border-gray-100, hover shadow effects
-- **Images**: Lazy loading, responsive, border-radius
+Posts are plain `.mdx` files in `content/blog/`. The filename is the URL slug — dropping in a new file + a matching cover SVG requires no code changes.
+
+1. [src/lib/mdx.ts](src/lib/mdx.ts) reads the files, parses frontmatter with `gray-matter`, converts Markdown to HTML with `remark` + `remark-gfm` + `remark-html`.
+2. [src/app/blog/\[slug\]/page.tsx](src/app/blog/%5Bslug%5D/page.tsx) renders each post and also: injects heading IDs ([lib/heading-ids.ts](src/lib/heading-ids.ts)) for the table of contents, optimizes inline images ([lib/image-optimizer.ts](src/lib/image-optimizer.ts)), extracts FAQ Q&A pairs ([lib/faq-extractor.ts](src/lib/faq-extractor.ts)) into `FAQPage` JSON-LD.
+3. [src/components/BlogPostContent.tsx](src/components/BlogPostContent.tsx) is the article layout (header, cover image, TOC, related posts). It also splits long posts at the midpoint block boundary to interleave content — see `splitContentAtMidpoint`.
+
+Frontmatter fields: `title`, `excerpt`, `date`, `tags`, `category`, `coverImage` (path to a matching `public/images/blog/{slug}.svg`), `readingTime`, `author` (defaults to `"Kedar Kulkarni"` in `mdx.ts` — not a placeholder), `featured`. Full authoring rules (BLUF openings, question-based H2s, FAQ section) are in `docs/BLOG-INSTRUCTIONS.md`.
+
+**Cover images are static SVGs and cannot read CSS custom properties.** They hardcode their own hex colors and do not respond to the dark/light toggle — this is expected, not a bug, but means they must be hand-edited if the theme palette changes (see Theming below).
+
+### SEO & LLM discoverability layer
+
+Built to be cited by AI search (ChatGPT, Claude, Perplexity, Google AI Overviews) as well as ranked traditionally:
+
+| File | Output |
+|---|---|
+| [src/app/sitemap.ts](src/app/sitemap.ts) | `/sitemap.xml` |
+| [src/app/robots.ts](src/app/robots.ts) | `/robots.txt` — explicitly allows AI crawlers (GPTBot, ClaudeBot, PerplexityBot, Google-Extended, etc.) |
+| [src/app/feed.xml/route.ts](src/app/feed.xml/route.ts) | Full-text RSS feed |
+| [src/app/llms.txt/route.ts](src/app/llms.txt/route.ts) | Site summary for LLMs, including an "available for" section |
+| [src/app/llms-full.txt/route.ts](src/app/llms-full.txt/route.ts) | Full post text for LLMs |
+| JSON-LD in each page | `Person`, `WebSite`, `BlogPosting`, `FAQPage`, `BreadcrumbList` |
+
+Page-level meta tags (title, description, canonical, OG, Twitter card) are generated by [src/lib/metadata.ts](src/lib/metadata.ts)'s `generatePageMetadata()` — but **not every page uses it**. `about/page.tsx`, `author/kedar-kulkarni/page.tsx`, `terms/page.tsx`, and `privacy/page.tsx` build their own inline `Metadata` objects instead (historical, so they can control non-standard title formatting). If you touch metadata on one of those pages, you must set `openGraph` *and* `twitter` explicitly — a page that only overrides `title`/`description` silently inherits the root layout's OG/Twitter card instead of its own.
+
+**`SITE_URL` is not centralized.** `process.env.NEXT_PUBLIC_SITE_URL || "https://kedarvijaykulkarni.vercel.app"` is copy-pasted as a local const at the top of every route/page that needs it (`layout.tsx`, `sitemap.ts`, `robots.ts`, `feed.xml/route.ts`, `llms.txt/route.ts`, `llms-full.txt/route.ts`, `api/indexnow/route.ts`, `about/page.tsx`, `blog/page.tsx`, `author/kedar-kulkarni/page.tsx`, `page.tsx`) rather than imported from one place (`lib/metadata.ts` does export `SITE_URL`, but most files don't import it). If the production domain ever changes, grep for the fallback string rather than editing one file.
+
+### Theming
+
+Tokens are CSS custom properties defined once in `:root` / `.dark` in [src/app/globals.css](src/app/globals.css), using `oklch()`, then re-exposed as Tailwind utilities via the `@theme` block (`--color-bg`, `--color-ink`, `--color-accent`, `--color-cta`, etc.). Components consume them as ordinary Tailwind classes (`bg-bg`, `text-ink-secondary`, `border-accent-border`) and never hardcode hex values. Dark mode is a `.dark` class on `<html>`, toggled by [ThemeToggle.tsx](src/components/ThemeToggle.tsx) and applied pre-paint by an inline script in `layout.tsx` to avoid a flash.
+
+Key tokens: `bg`/`bg-alt`/`bg-elevated` (page/section/card surfaces), `ink`/`ink-secondary`/`ink-tertiary` (text hierarchy), `accent`/`accent-2` (a two-stop sky-to-violet gradient pair — `accent-2` exists only to be the second gradient stop, rarely used standalone), `accent-soft`/`accent-border` (translucent variants for badges/glow), `cta`/`cta-hover`/`cta-text` (a deliberately distinct orange, reserved for the "Hire me" CTA so it's the one warm color against an otherwise cool palette — don't reuse it elsewhere).
+
+**Custom component classes must live inside `@layer components`, not as bare unlayered CSS.** `.glass-panel`, `.text-gradient-accent`, and `.starfield` are defined inside `@layer components` in `globals.css`. This is required, not stylistic: Tailwind v4 puts its own utilities (including every `hover:*` / `dark:*` variant) in the `utilities` layer, and per the CSS cascade-layers spec, unlayered CSS always beats *any* layered CSS regardless of specificity or pseudo-class state. A `.glass-panel { border: 1px solid var(--color-border); }` written outside `@layer` will permanently block `hover:border-accent-border` on the same element — the hover state matches, but the browser never applies it. If you add a new shared class that other elements need to override via Tailwind utilities (hover, dark, responsive variants), put it in `@layer components`.
+
+`MotionConfig reducedMotion="user"` wraps the app in `layout.tsx`, so every Framer Motion animation site-wide automatically respects `prefers-reduced-motion` — don't add per-component reduced-motion handling, it's already covered globally.
+
+### Component patterns worth knowing before editing
+
+- **WorkSection.tsx** implements real client-side tabs (`useState` + `AnimatePresence mode="wait"`) between "Client Work" and "Open Source" project lists — not a CSS-only tab hack.
+- Section components generally follow: eyebrow label (`## — LABEL` in `text-accent`, e.g. `01 — CAPABILITIES`) → `font-display` headline → `.glass-panel` card grid, with Framer Motion `whileInView` reveal animations staggered by index.
+- `next.config.ts` sets CSP/HSTS/frame-options security headers and a `www → apex` redirect — **do not modify these without review** (per standing project rule below). Note the redirect still targets `www.example.com → example.com`, a leftover from the original template; it's inert unless someone points DNS at `www.<realdomain>`.
 
 ## Environment Variables
 
 Optional in `.env.local`:
-- `NEXT_PUBLIC_SITE_URL` - production domain (drives canonical URLs, sitemap, OG, IndexNow). Falls back to `https://example.com`.
+- `NEXT_PUBLIC_SITE_URL` — production domain. Drives canonical URLs, sitemap, OG tags, and IndexNow. Falls back to `https://kedarvijaykulkarni.vercel.app` (see the SITE_URL note above — this fallback is duplicated across many files).
+- `NEXT_PUBLIC_GTM_ID` — Google Tag Manager container ID. Unset by default; when present, `layout.tsx` injects the GTM script and noscript iframe.
+- `NEXT_PUBLIC_NOINDEX` — set to `"true"` to force `noindex, nofollow` site-wide (e.g. demo/staging deploys).
 
-## SEO & LLM Optimization
+## Content Pipeline (inbox → published)
 
-Every page should include:
-- JSON-LD structured data (Person, BlogPosting, FAQ, Breadcrumb)
-- Open Graph + Twitter meta tags
-- Canonical URLs
-- Auto-generated: sitemap.xml, feed.xml, robots.txt, llms.txt
+Blog content moves through two layers, not one:
+
+1. **`docs/blogs/`** — an inbox of raw source material (past LinkedIn posts, drafts, notes) that hasn't been adapted into a site post. Nothing here is live; it's reference material, not content.
+2. **`content/blog/*.mdx`** — the published layer. Anything here is live on `/blog` and must follow `docs/BLOG-INSTRUCTIONS.md`'s structure (BLUF opening, question-based H2s, FAQ section).
+
+When asked for a new post, check `docs/blogs/` first for real source material before proposing a topic — a real draft there beats a generic suggestion. When promoting a draft to `content/blog/`, carry over only the facts actually present in the source (employers, dates, metrics, project names); restructuring for the site's format is fine, inventing detail to fill gaps is not.
+
+## Working Notes
+
+This repo is normally driven through Claude Code slash-command skills (`/qa`, `/design-review`, `/code-review`, etc.) rather than ad hoc instructions — when a task matches an existing skill, prefer invoking it over improvising the same workflow from scratch.
+
+## Reference docs
+
+`docs/` contains `ARCHITECTURE.md`, `BRANDING.md`, `DEPLOYMENT.md`, `BLOG-INSTRUCTIONS.md`, and `CUSTOMIZE-WITH-AI.md`. **Treat these as historical/partially stale**, not current truth: they describe the original template scaffold (purple/pink brand palette, "Alex Rivera" placeholder identity) which has since been replaced site-wide with Kedar Kulkarni's real identity and the oklch-based sky/violet/orange theme documented above. `BLOG-INSTRUCTIONS.md`'s frontmatter/authoring rules are still accurate and worth reading before writing a post; its color guidance is not.
 
 ## Do NOT
 
-- Add UI component libraries (shadcn, MUI, Chakra) - use custom Tailwind
-- Add authentication libraries - this is a public site
-- Add a newsletter, Redis, or any database - the site is intentionally backend-free
-- Modify security headers in `next.config.ts` without review
+- Add UI component libraries (shadcn, MUI, Chakra) — use custom Tailwind
+- Add authentication libraries — this is a public site
+- Add a newsletter, Redis, or any database — the site is intentionally backend-free
+- Modify security headers or the redirect in `next.config.ts` without review
 - Commit `.env.local` or any secrets
-- Use CSS modules or styled-components - Tailwind only
+- Use CSS modules or styled-components — Tailwind only
+- Define new shared CSS classes outside `@layer components` if anything needs to override them with a Tailwind variant (see the cascade-layers gotcha above)
+
+## Skill routing
+
+When the user's request matches an available skill, invoke it via the Skill tool. When in doubt, invoke the skill.
+
+Key routing rules:
+- Product ideas/brainstorming → invoke /office-hours
+- Strategy/scope → invoke /plan-ceo-review
+- Architecture → invoke /plan-eng-review
+- Design system/plan review → invoke /design-consultation or /plan-design-review
+- Full review pipeline → invoke /autoplan
+- Bugs/errors → invoke /investigate
+- QA/testing site behavior → invoke /qa or /qa-only
+- Code review/diff check → invoke /review
+- Visual polish → invoke /design-review
+- Ship/deploy/PR → invoke /ship or /land-and-deploy
+- Save progress → invoke /context-save
+- Resume context → invoke /context-restore
+- Author a backlog-ready spec/issue → invoke /spec
