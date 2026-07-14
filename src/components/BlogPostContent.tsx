@@ -119,7 +119,7 @@ export function BlogPostContent({
             priority
             width={1200}
             height={630}
-            className="w-full h-auto rounded-2xl"
+            className="w-full h-auto rounded-2xl border border-border"
           />
         </div>
       )}
