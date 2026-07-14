@@ -1,0 +1,135 @@
+---
+title: "Setting Up Gemma 3:27B and Building a Node.js API"
+excerpt: "A hands-on walkthrough of running Gemma 3:27B locally with Ollama and wiring up a Node.js Express API to send prompts and get responses."
+date: "2025-03-23"
+tags: ["ai", "llm", "ollama", "nodejs", "local-ai"]
+category: "guides"
+coverImage: "/images/blog/setting-up-gemma-3-27b-nodejs-api.svg"
+readingTime: "3 min read"
+author: "Kedar Kulkarni"
+featured: false
+---
+
+You can run Gemma 3:27B locally with Ollama and call it from your own Node.js API in two steps: install Ollama and pull the model, then build a small Express server that forwards prompts to Ollama's local HTTP endpoint. No cloud API keys, no per-token billing.
+
+This post walks through both steps, from a clean machine to a working `/chat` endpoint.
+
+## Why run an LLM locally instead of calling a cloud API?
+
+Running Gemma 3:27B locally with Ollama means your prompts and responses never leave your machine, and there's no per-request cost once the model is downloaded. Ollama handles the model serving; you only need to talk to its local HTTP API.
+
+## How do you install Gemma 3:27B with Ollama?
+
+Install Ollama for your OS, then pull and verify the model with two commands. The whole setup takes three steps and no configuration files.
+
+1. **Download and install Ollama.** Visit the Ollama website and install the version for your OS (Windows, macOS, or Linux).
+2. **Pull the model.** Open a terminal and run:
+
+   ```
+   ollama pull gemma3:27b
+   ```
+
+3. **Verify it's running.** Test it directly from the terminal:
+
+   ```
+   ollama run gemma3:27b "Hello, how are you?"
+   ```
+
+   If you get a response, the model is working correctly.
+
+## How do you build a Node.js API around it?
+
+Ollama exposes a local HTTP API on port 11434, so a Node.js API in front of it is just an Express route that forwards the prompt with Axios and returns the response. No SDK required.
+
+1. **Initialize the project.**
+
+   ```
+   mkdir gemma-node-api
+   cd gemma-node-api
+   npm init -y
+   ```
+
+2. **Install dependencies.** Express for the server, Axios to call Ollama's API:
+
+   ```
+   npm install express axios
+   ```
+
+3. **Create `server.js`:**
+
+   ```javascript
+   const express = require("express");
+   const axios = require("axios");
+
+   const app = express();
+   const PORT = 3000;
+
+   app.use(express.json());
+
+   app.post("/chat", async (req, res) => {
+     try {
+       const userPrompt = req.body.prompt;
+
+       if (!userPrompt) {
+         return res.status(400).json({ error: "Prompt is required" });
+       }
+
+       const response = await axios.post("http://localhost:11434/api/generate", {
+         model: "gemma3:27b",
+         prompt: userPrompt,
+         stream: false,
+       });
+
+       res.json({ response: response.data.response });
+     } catch (error) {
+       console.error("Error:", error);
+       res.status(500).json({ error: "Failed to get response from Ollama" });
+     }
+   });
+
+   app.listen(PORT, () => {
+     console.log(`Server running at http://localhost:${PORT}`);
+   });
+   ```
+
+4. **Start the server:**
+
+   ```
+   node server.js
+   ```
+
+   This starts a local API at `http://localhost:3000`.
+
+## How do you test the API?
+
+Send a POST request with a `prompt` field to the `/chat` endpoint using cURL, Postman, or any HTTP client, and you get back the model's response as JSON.
+
+```
+curl -X POST "http://localhost:3000/chat" -H "Content-Type: application/json" -d '{"prompt": "What is AI?"}'
+```
+
+Expected response:
+
+```json
+{
+  "response": "AI stands for Artificial Intelligence, which refers to..."
+}
+```
+
+## Frequently Asked Questions
+
+### Do I need a GPU to run Gemma 3:27B locally?
+
+The post doesn't cover hardware benchmarking - Ollama will use available GPU acceleration where supported, or fall back to CPU. Check Ollama's own documentation for hardware guidance for the 27B model size.
+
+### Does this cost anything to run?
+
+No API fees. Once Ollama and the model are downloaded, requests run entirely on your own machine.
+
+### Can I swap in a different model?
+
+Yes - the API forwards whatever `model` value you set in the request to Ollama's `/api/generate` endpoint, so any model you've pulled with `ollama pull` works the same way.
+
+### Where's the source code?
+
+The Node.js API from this post is on GitHub at github.com/kedarvijaykulkarni/ollama-node-app.

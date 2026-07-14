@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getAllPostsMeta } from "@/lib/mdx";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://kedarvijaykulkarni.vercel.app";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getAllPostsMeta();

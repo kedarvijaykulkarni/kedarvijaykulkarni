@@ -1,0 +1,81 @@
+---
+title: "Chakra UI: A Comprehensive Overview"
+excerpt: "What Chakra UI is, its component building blocks and style props, and how it compares to Material UI, Ant Design, and Bootstrap."
+date: "2025-03-19"
+tags: ["react", "chakra-ui", "ui-libraries", "frontend", "accessibility"]
+category: "notes"
+coverImage: "/images/blog/chakra-ui-overview.svg"
+readingTime: "3 min read"
+author: "Kedar Kulkarni"
+featured: false
+---
+
+Chakra UI is a modular, accessible component library for React, built on top of Styled System. Instead of shipping pre-styled components with limited control, it gives you building blocks - components and style props - that you compose and customize into your own design.
+
+## What is Chakra UI?
+
+Chakra UI is a system for building accessible, reusable UI components, not just a set of pre-made ones. It provides unstyled building blocks like `Box`, `Text`, `Button`, `Input`, `Image`, and `Container`, plus a style-prop system for controlling their appearance.
+
+## What are Chakra UI's key features?
+
+The core of Chakra UI is style props - props like `color`, `fontSize`, `margin`, and `borderRadius` that you pass directly to components, backed by a theme object you can customize.
+
+- **Component building blocks**: unstyled primitives like `Box`, `Text`, `Button`, `Input`, `Image`, and `Container` as the foundation for more complex UI.
+- **Style props**: a consistent, predictable system for controlling appearance without writing separate CSS.
+- **Themeability**: a theme object controls colors, fonts, spacing, and breakpoints across your app, making it easy to support multiple themes or brands.
+- **Accessibility (a11y)**: components are built with proper ARIA attributes and semantic HTML by default.
+- **Dark mode support**: built in with a few lines of code.
+- **Responsive design**: breakpoint-aware style props like `px`, `py`, `mx`, and `my`.
+- **Hooks**: utilities like `useColorMode`, `useBreakpointValue`, and `useOutsideClick`.
+- **TypeScript support**: written in TypeScript with full type definitions.
+
+## How does it compare to Material UI, Ant Design, and Bootstrap?
+
+Chakra UI trades a large catalog of pre-built components for more flexibility in styling - you compose primitives instead of overriding a fixed design system.
+
+- **Material UI**: more mature, with a wider range of pre-built components. Great if you want Material Design out of the box; Chakra UI offers more styling flexibility.
+- **Ant Design**: feature-rich and built for enterprise applications, but can be complex to learn and customize.
+- **Bootstrap**: easy to learn, widely used, but harder to customize and less flexible than Chakra UI's style-prop system.
+
+## What does using it look like?
+
+A styled container with text and a button is a handful of props on `Box`, `Text`, and `Button` - no separate CSS file.
+
+```jsx
+import { Box, Text, Button } from '@chakra-ui/react';
+
+function MyComponent() {
+  return (
+    <Box bg="teal.500" color="white" p={4} borderRadius="md">
+      <Text fontSize="xl" fontWeight="bold">
+        Hello, Chakra UI!
+      </Text>
+      <Button colorScheme="blue" mt={2}>
+        Click Me
+      </Button>
+    </Box>
+  );
+}
+
+export default MyComponent;
+```
+
+Here, `Box` is a container that accepts style props: `bg="teal.500"` sets the background, `color="white"` sets text color, `p={4}` sets padding, and `borderRadius="md"` rounds the corners. `Text` renders the heading with `fontSize` and `fontWeight` props, and `Button` applies a `colorScheme` and a `mt` (margin-top) prop.
+
+## Frequently Asked Questions
+
+### Is Chakra UI good for accessibility?
+
+Yes - accessibility is a core design principle, with components built to include proper ARIA attributes and semantic HTML out of the box.
+
+### Does Chakra UI support dark mode?
+
+Yes, dark mode is supported with minimal setup and the `useColorMode` hook.
+
+### Is Chakra UI written in TypeScript?
+
+Yes, and it ships with full type definitions for type-safe React applications.
+
+### Where can I learn more?
+
+The official site is chakra-ui.com, with documentation at chakra-ui.com/docs/getting-started and source on GitHub at github.com/chakra-ui/chakra-ui.

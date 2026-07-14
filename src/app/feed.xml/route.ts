@@ -1,6 +1,6 @@
 import { getPostBySlug, getAllPostsMeta } from "@/lib/mdx";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://kedarvijaykulkarni.vercel.app";
 
 function escapeXml(str: string): string {
   return str

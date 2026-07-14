@@ -4,8 +4,9 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/react";
 import Script from "next/script";
+import { MotionConfig } from "framer-motion";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://kedarvijaykulkarni.vercel.app";
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
 
 export const metadata: Metadata = {
@@ -122,9 +123,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             />
           </noscript>
         )}
-        <Navbar />
-        <main id="main" className="flex-1">{children}</main>
-        <Footer />
+        <MotionConfig reducedMotion="user">
+          <Navbar />
+          <main id="main" className="flex-1">{children}</main>
+          <Footer />
+        </MotionConfig>
         <Analytics />
       </body>
     </html>

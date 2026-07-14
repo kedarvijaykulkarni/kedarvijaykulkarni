@@ -6,7 +6,7 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 const BRAND_NAME = "Kedar Kulkarni";
 const NAV = [
   { label: "Work", href: "/#work" },
-  { label: "About", href: "/#about" },
+  { label: "About", href: "/about" },
   { label: "Blog", href: "/blog" },
 ];
 const CTA = { label: "Hire me", href: "mailto:kedarvijaykulkarni@gmail.com" };
@@ -30,7 +30,7 @@ export function Navbar() {
             <Link
               key={item.href}
               href={item.href}
-              className="hidden sm:inline text-sm font-medium text-ink-secondary hover:text-accent transition-colors"
+              className="hidden sm:inline-flex sm:items-center py-3 text-sm font-medium text-ink-secondary hover:text-accent transition-colors"
             >
               {item.label}
             </Link>

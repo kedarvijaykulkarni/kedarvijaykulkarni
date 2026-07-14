@@ -1,6 +1,6 @@
 import { getPostBySlug, getAllPostsMeta } from "@/lib/mdx";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://kedarvijaykulkarni.vercel.app";
 
 export async function GET() {
   const posts = getAllPostsMeta();
@@ -9,7 +9,7 @@ export async function GET() {
 
   sections.push(`# Kedar Kulkarni - Full Content
 
-> Portfolio of Kedar Kulkarni - a Full-Stack Architect & AI Engineer building enterprise platforms and production GenAI systems.
+> Portfolio of Kedar Kulkarni - a Full-Stack Architect & AI Engineer building enterprise platforms and production GenAI systems. Actively targeting Staff Engineer, Tech Lead, AI Engineer, or Full-Stack Architect roles, worldwide - remote, hybrid, on-site, or relocation, contract or full-time.
 
 Website: ${SITE_URL}
 Author: Kedar Kulkarni (Full-Stack Architect & AI Engineer)

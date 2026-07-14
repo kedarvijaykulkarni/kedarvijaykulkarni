@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export function TeamSection() {
   return (
@@ -54,14 +55,22 @@ export function TeamSection() {
               mind, get in touch.
             </p>
           </div>
-          <a
-            href="https://www.linkedin.com/in/kedarvijaykulkarni"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block mt-6 text-sm font-semibold text-accent hover:opacity-80 transition-opacity"
-          >
-            LinkedIn &rarr;
-          </a>
+          <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2">
+            <Link
+              href="/about"
+              className="inline-block text-sm font-semibold text-accent hover:opacity-80 transition-opacity"
+            >
+              Read my full story &rarr;
+            </Link>
+            <a
+              href="https://www.linkedin.com/in/kedarvijaykulkarni"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block text-sm font-semibold text-accent hover:opacity-80 transition-opacity"
+            >
+              LinkedIn &rarr;
+            </a>
+          </div>
         </motion.div>
       </div>
     </section>

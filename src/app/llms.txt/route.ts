@@ -1,6 +1,6 @@
 import { getAllPostsMeta } from "@/lib/mdx";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://kedarvijaykulkarni.vercel.app";
 
 export async function GET() {
   const posts = getAllPostsMeta();
@@ -28,6 +28,10 @@ Kedar Kulkarni is a Full-Stack Architect & AI Engineer with 20+ years building e
 - Databases & APIs - PostgreSQL, MySQL, Redis, and microservices architecture
 - Testing & quality - Cypress, Playwright, and API automation
 - Technical leadership - tech lead on distributed teams, architecture, and mentoring
+
+## Available for
+
+Kedar is actively targeting Staff Engineer, Tech Lead, AI Engineer, or Full-Stack Architect roles, worldwide. Open to remote, hybrid, on-site, or relocation work, as a contract, fractional, or full-time engagement. He holds a valid US B1/B2 visa through 2034 and is an immediate joiner. Based in Thane, Maharashtra, India.
 
 ## Website
 

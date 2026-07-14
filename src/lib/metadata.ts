@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://kedarvijaykulkarni.vercel.app";
 const SITE_NAME = "Kedar Kulkarni";
 const DEFAULT_DESCRIPTION =
   "Portfolio of Kedar Kulkarni - Full-Stack Architect & AI Engineer building enterprise platforms and production GenAI systems. Selected work, writing, and how to get in touch.";
-const TWITTER = "";
+const TWITTER = "kedman1234";
 
 interface GenerateMetadataOptions {
   title: string;

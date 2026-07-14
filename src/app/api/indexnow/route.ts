@@ -4,7 +4,7 @@ import { getAllPostsMeta } from "@/lib/mdx";
 // TODO: generate a unique IndexNow key (https://www.indexnow.org/) and
 // place a matching {KEY}.txt file in /public. Update INDEXNOW_KEY below to match.
 const INDEXNOW_KEY = "indexnow-key-2026";
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://kedarvijaykulkarni.vercel.app";
 const SITE_HOST = SITE_URL.replace(/^https?:\/\//, "");
 const KEY_LOCATION = `${SITE_URL}/${INDEXNOW_KEY}.txt`;
 
