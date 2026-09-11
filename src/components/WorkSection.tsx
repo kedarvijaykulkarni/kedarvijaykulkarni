@@ -31,6 +31,8 @@ const work: WorkItem[] = [
     description:
       "Led the end-to-end migration of legacy PHP systems to production-ready Next.js and Node.js for Wcities' global travel and event platforms. Built real-time event ingestion with Node.js WebSockets and an AI-powered POI matching system, while driving AI-assisted development workflows with OpenAI and Ollama.",
     outcome: "~80% AI-assisted code generation without sacrificing engineering quality.",
+    href: "https://cityseeker.com/",
+    linkLabel: "Visit CitySeeker",
   },
   {
     title: "Production LLM Applications at Mantium AI",
@@ -48,6 +50,8 @@ const work: WorkItem[] = [
     description:
       "Owned the migration of APIsec's enterprise Angular application to React (Vite + Chakra UI), defined the component and state management strategy, and integrated Stripe, Auth0, and Supabase.",
     outcome: "Built a full Cypress E2E suite that cut production regressions and raised release confidence.",
+    href: "https://cloud.apisecapps.com/",
+    linkLabel: "Visit APIsec",
   },
   {
     title: "AI Chatbot Authoring Platform",
@@ -84,6 +88,17 @@ const openSourceProjects: OpenSourceProject[] = [
     description:
       "Official open-source JS/Node client I architected for the Mantium AI platform - OpenAI, Cohere, and AI21 integrations.",
     links: [{ label: "GitHub", href: "https://github.com/mantiumai/mantiumclient-js" }],
+  },
+  {
+    name: "Ollama LinkedIn Bot",
+    description:
+      "Express app that drives a local Ollama model (deepseek-r1) with a structured prompt to draft LinkedIn-ready posts from a topic, then publishes them via the LinkedIn UGC API using OAuth 2.0 - a self-hosted alternative to a cloud LLM for AI-assisted content generation.",
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/kedarvijaykulkarni/js-playground/tree/Ollama-LinkedIn-Bot",
+      },
+    ],
   },
   {
     name: "SFOX-Market-Data",
