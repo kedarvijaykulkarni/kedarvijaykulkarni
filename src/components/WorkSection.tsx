@@ -10,6 +10,7 @@ type WorkItem = {
   description: string;
   outcome: string;
   href?: string;
+  linkLabel?: string;
 };
 
 const work: WorkItem[] = [
@@ -21,6 +22,7 @@ const work: WorkItem[] = [
       "Dive centers run their business on spreadsheets, WhatsApp, and legacy booking tools that charge commission on every sale. I designed and built RidgeHQ end-to-end as a solo founder — scheduling, bookings, payments, staff, gear rental, and compliance (waivers with e-signatures) in one system — with an AI copilot wired into the same operational core as the UI, not bolted on as a chatbot. Every AI-initiated action goes through the same permission checks as a human one, with a full audit trail. Built with Claude Code driving most of the implementation on a FastAPI + SQLAlchemy 2.0 + PostgreSQL (row-level-security multi-tenancy) + Next.js stack.",
     outcome: "0% commission on direct bookings, built-in digital waivers, and a genuinely reversible AI copilot for scheduling operations.",
     href: "https://ridgehq.app",
+    linkLabel: "Visit RidgeHQ",
   },
   {
     title: "CitySeeker & HotelSeeker Platform Modernization",
@@ -179,7 +181,7 @@ export function WorkSection() {
                       rel="noopener noreferrer"
                       className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-accent hover:opacity-80 transition-opacity"
                     >
-                      View on GitHub &rarr;
+                      {item.linkLabel ?? "View on GitHub"} &rarr;
                     </a>
                   )}
                 </motion.div>
