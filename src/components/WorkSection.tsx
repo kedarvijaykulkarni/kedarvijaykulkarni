@@ -14,6 +14,15 @@ type WorkItem = {
 
 const work: WorkItem[] = [
   {
+    title: "RidgeHQ — AI-Native Operations Platform for Dive Centers",
+    tag: "FOUNDER &middot; AI-ASSISTED PRODUCT ENGINEERING",
+    company: "RidgeHQ &middot; Solo Founder / Full-Stack Architect &middot; 2026-Present",
+    description:
+      "Dive centers run their business on spreadsheets, WhatsApp, and legacy booking tools that charge commission on every sale. I designed and built RidgeHQ end-to-end as a solo founder — scheduling, bookings, payments, staff, gear rental, and compliance (waivers with e-signatures) in one system — with an AI copilot wired into the same operational core as the UI, not bolted on as a chatbot. Every AI-initiated action goes through the same permission checks as a human one, with a full audit trail. Built with Claude Code driving most of the implementation on a FastAPI + SQLAlchemy 2.0 + PostgreSQL (row-level-security multi-tenancy) + Next.js stack.",
+    outcome: "0% commission on direct bookings, built-in digital waivers, and a genuinely reversible AI copilot for scheduling operations.",
+    href: "https://ridgehq.app",
+  },
+  {
     title: "CitySeeker & HotelSeeker Platform Modernization",
     tag: "FULL-STACK ARCHITECTURE &middot; AI",
     company: "Wcities Content Solutions &middot; Tech Lead / Full-Stack Architect &middot; 2025-Present",
